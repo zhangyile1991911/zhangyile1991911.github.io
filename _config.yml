@@ -14,7 +14,7 @@ timezone: Asia/Tokyo
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 張亦楽 # the main title
+title: 張亦楽のBlog # the main title
 
 tagline: ゲームが好きで作ってるである人 # it will display as the sub-title
 
