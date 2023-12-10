@@ -1,0 +1,13 @@
+
+
+
+.leetcode-icon {
+    width: 25px; 
+    height: 25px; 
+    background-image: url('leetcode.webp'); /* 图片的 URL */
+    background-size: cover; /* 按比例缩放图片以填充整个图标区域 */
+    background-repeat: no-repeat; /* 禁止图片平铺 */
+    background-color: #ffffff; 
+    border-radius: 50%; /* 使图标呈圆形 */
+    position: relative;
+}

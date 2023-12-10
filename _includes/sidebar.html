@@ -65,9 +65,9 @@
           {%- capture url -%}
             https://{{ entry.type }}.com/{{ site[entry.type].username }}
           {%- endcapture -%}
-        {% when 'leetcode' %}
+        {% when 'leetcode-cn' %}
           {%- capture url -%}
-            https://{{ entry.type }}.com/{{ site[entry.type].username }}
+            https://leetcode.cn/u/tu-gou/
           {%- endcapture -%}
         {% when 'email' %}
           {% assign email = site.social.email | split: '@' %}

@@ -6,7 +6,7 @@
 # - type: twitter
 #   icon: "fa-brands fa-x-twitter"
 - type: leetcode-cn
-  icon: "fa-brands fa-x-twitter"
+  icon: "leetcode-icon"
   url: "https://leetcode.cn/u/tu-gou/"
 
 - type: email
