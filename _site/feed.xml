@@ -2,41 +2,41 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>張亦楽のBlog</title>
+  <title>Chirpy</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-12-10T16:09:13+09:00</updated>
+  <updated>2023-12-10T16:23:43+08:00</updated>
   <author>
-    <name>張亦楽</name>
+    <name>your_full_name</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <rights> © 2023 張亦楽 </rights>
+  <rights> © 2023 your_full_name </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>自己紹介</title>
-    <link href="http://localhost:4000/posts/self-introduction/" rel="alternate" type="text/html" title="自己紹介" />
-    <published>2023-12-09T15:35:00+09:00</published>
+    <title>Customize the Favicon</title>
+    <link href="http://localhost:4000/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
+    <published>2019-08-11T00:34:00+08:00</published>
   
-    <updated>2023-12-09T15:35:00+09:00</updated>
+    <updated>2019-08-11T00:34:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/self-introduction/</id>
-    <content src="http://localhost:4000/posts/self-introduction/" />
+    <id>http://localhost:4000/posts/customize-the-favicon/</id>
+    <content src="http://localhost:4000/posts/customize-the-favicon/" />
     <author>
-      <name>zhangyile</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="就職" />
+    <category term="Blogging" />
     
-    <category term="自己紹介" />
+    <category term="Tutorial" />
     
   
 
@@ -48,26 +48,11 @@
 
 
 
-      
-  スキル
-  
-    C++ 3年
-    C#　3年
-    Golang 3年以上
-    Unity 3年
-    Cocos2dx 2年
-  
+      The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
 
+Generate the favicon
 
-初めまして
-私は張亦楽と申します。今年で32歳で、出身地は上海です。
-私の得意な開発言語はC++、Golang、C#です。2014年にスマートフォンゲーム業界に入社し、その後9年間、SE・PGとしての経験を積みました。主にスマートフォンゲームの案件を担当し、C++とGolangの言語を使って開発を行っていましたので、ゲームの開発に自信があります。私はより簡潔かつ拡張性の高いコードを書くことに力を入れており、メモリを効率的に使うように心がけています。また、新しい技術やツールに興味を持ち、積極的に学習しています。
-以上です。
-ありがとうございます。
-
-日本に来た理由
-
-  小さい頃から日本のゲームで遊んでおり、日本という国に次第...
+Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...
     </summary>
   
 
@@ -75,21 +60,23 @@
 
   
   <entry>
-    <title>インディーゲーム</title>
-    <link href="http://localhost:4000/posts/inde-game/" rel="alternate" type="text/html" title="インディーゲーム" />
-    <published>2019-08-08T12:33:00+09:00</published>
+    <title>Getting Started</title>
+    <link href="http://localhost:4000/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
+    <published>2019-08-09T20:55:00+08:00</published>
   
-    <updated>2019-08-08T12:33:00+09:00</updated>
+    <updated>2019-08-09T20:55:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/inde-game/</id>
-    <content src="http://localhost:4000/posts/inde-game/" />
+    <id>http://localhost:4000/posts/getting-started/</id>
+    <content src="http://localhost:4000/posts/getting-started/" />
     <author>
-      <name>zhangyile</name>
+      <name>cotes</name>
     </author>
 
   
     
-    <category term="Indie Game" />
+    <category term="Blogging" />
+    
+    <category term="Tutorial" />
     
   
 
@@ -101,12 +88,109 @@
 
 
 
-      このゲームを作るのきっかけ
+      Prerequisites
 
-おでん屋人情物語というスマホゲームをやってから、ずっと思っていますが。私がこのようなゲームを開発できますでしょうか。ゲームに登場人物が私の代わりに近年の社会で出来たことを語りませんかと思っています。普通の人の口から、社会と国の変更や変遷に対して自分の考えを語れませんか。
-自分の腕前を磨くために、ずっとゲーム業界に働いているけれど、たった開発チームのメンバーとして開発仕事を続けてきだけです。自分が何のためにゲーム業界に入ったのと自問すると最初の夢を思い出してきました。自分の好きなゲームを作るために、この業界入って経験を積んで一人前ようになってから、インディーゲームを開発しますから。今はこの夢を叶える時がきました。このゲームを開発してから一歩一歩で夢に近づくしましょう。
+Follow the instructions in the Jekyll Docs to complete the installation of the basic environment. Git also needs to be installed.
+
+Installation
+
+Creating a New Site
+
+There are two ways to create a new repository for this theme:
 
 
+  Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
+  GitHub Fork - Convenient for custom devel...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Writing a New Post</title>
+    <link href="http://localhost:4000/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
+    <published>2019-08-08T14:10:00+08:00</published>
+  
+    <updated>2019-08-08T14:10:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/write-a-new-post/</id>
+    <content src="http://localhost:4000/posts/write-a-new-post/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Tutorial" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.
+
+Naming and Path
+
+Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Text and Typography</title>
+    <link href="http://localhost:4000/posts/text-and-typography/" rel="alternate" type="text/html" title="Text and Typography" />
+    <published>2019-08-08T11:33:00+08:00</published>
+  
+    <updated>2019-08-08T11:33:00+08:00</updated>
+  
+    <id>http://localhost:4000/posts/text-and-typography/</id>
+    <content src="http://localhost:4000/posts/text-and-typography/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Demo" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography.
+
+Headings
+
+H1 - heading
+
+H2 - heading
+
+H3 - heading
+
+H4 - heading
+
+Paragraph
+
+Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilis...
     </summary>
   
 

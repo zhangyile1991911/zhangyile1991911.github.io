@@ -3,11 +3,8 @@
 - type: github
   icon: "fab fa-github"
 
-# - type: twitter
-#   icon: "fa-brands fa-x-twitter"
-- type: leetcode-cn
-  icon: "leetcode-icon"
-  url: "https://leetcode.cn/u/tu-gou/"
+- type: twitter
+  icon: "fa-brands fa-x-twitter"
 
 - type: email
   icon: "fas fa-envelope"
