@@ -1,35 +1,35 @@
 const resource = [
   /* --- CSS --- */
-  '/assets/css/jekyll-theme-chirpy.css',
+  '/zhangyile1991911/assets/css/jekyll-theme-chirpy.css',
 
   /* --- PWA --- */
-  '/app.js',
-  '/sw.js',
+  '/zhangyile1991911/app.js',
+  '/zhangyile1991911/sw.js',
 
   /* --- HTML --- */
-  '/index.html',
-  '/404.html',
+  '/zhangyile1991911/index.html',
+  '/zhangyile1991911/404.html',
 
   
-    '/categories/',
+    '/zhangyile1991911/categories/',
   
-    '/tags/',
+    '/zhangyile1991911/tags/',
   
-    '/archives/',
+    '/zhangyile1991911/archives/',
   
-    '/about/',
+    '/zhangyile1991911/about/',
   
 
   /* --- Favicons & compressed JS --- */
   
   
-    '/assets/img/favicons/android-chrome-192x192.png',
-    '/assets/img/favicons/android-chrome-512x512.png',
-    '/assets/img/favicons/apple-touch-icon.png',
-    '/assets/img/favicons/favicon-16x16.png',
-    '/assets/img/favicons/favicon-32x32.png',
-    '/assets/img/favicons/favicon.ico',
-    '/assets/img/favicons/mstile-150x150.png'
+    '/zhangyile1991911/assets/img/favicons/android-chrome-192x192.png',
+    '/zhangyile1991911/assets/img/favicons/android-chrome-512x512.png',
+    '/zhangyile1991911/assets/img/favicons/apple-touch-icon.png',
+    '/zhangyile1991911/assets/img/favicons/favicon-16x16.png',
+    '/zhangyile1991911/assets/img/favicons/favicon-32x32.png',
+    '/zhangyile1991911/assets/img/favicons/favicon.ico',
+    '/zhangyile1991911/assets/img/favicons/mstile-150x150.png'
 ];
 
 /* The request url with below domain will be cached */
