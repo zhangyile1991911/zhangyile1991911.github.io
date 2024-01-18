@@ -1,7 +1,7 @@
 ---
 title: インディーゲームの日記
 author: zhangyile
-date: 2019-08-08 11:33:00 +0800
+date: 2023-12-22 11:33:00 +0800
 categories: [Indie Game]
 tags: [Indie Game,Development]
 comments: false
