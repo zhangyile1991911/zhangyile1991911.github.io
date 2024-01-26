@@ -13,12 +13,12 @@ image:
 ---
 
 
-### 効果ご覧ください
+## 効果ご覧ください
 
 ![Desktop View](shadergraph/dissolve_shadergraph.png){: prepend: site.baseurl width="590" height="1026"}
 
 
-### 説明
+## 説明
 
 この部分の中に一番重要なノードはStepです。
 

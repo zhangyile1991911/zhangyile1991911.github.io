@@ -15,8 +15,8 @@ image:
 >　このブログでは、ParticalSystemとShaderGraphを使用して簡単に爆発するイフェクト方法を紹介します。
 
 
-### 画素化
-まず普通な画像を画素化する
+## 画素化
+### まず普通な画像を画素化する
 ![Desktop View](shadergraph/pixel_step1.png)
 数式
 ```

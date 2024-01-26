@@ -12,14 +12,14 @@ image:
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
-### 今日完了した機能
+## 今日完了した機能
 
 ![Desktop View](gif/晴天播报切换1.gif){: prepend: site.baseurl width="295" height="513"}
 
-### 説明
+## 説明
 DOTweenとUniTaskいうライブラリを使い、画像を読み込みながら動きます
 
-### コード
+## コード
 ```
 public async UniTask LoadSpriteAsync(string resPath,Action<Sprite> complete)
 {
