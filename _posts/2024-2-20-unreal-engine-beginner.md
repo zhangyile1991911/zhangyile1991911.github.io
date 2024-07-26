@@ -7,7 +7,7 @@ tags: [Unreal Engine,Development]
 comments: false
 img_path: /assets/img/
 image:
-  path: sample.png
+  path: UnrealEngine/unrealenginetitle.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
@@ -34,8 +34,8 @@ https://www.youtube.com/watch?v=wJo5tusarvY&t=1627s
 看到Part5
 学习了
 如果提供给蓝图的函数
-BlueprintPure 有返回值
-BlueprintCallable 没返回值
+BlueprintPure 有返回值 引き出しがある
+BlueprintCallable 没返回值　引き出しがない
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_XXXParams
 提供监听
 
@@ -48,7 +48,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_
 内部通过TArray管理监听函数，所以按照先进先调用顺序
 继承顺序
 UOBJECT->AActor->APawn->ACharacter->ACharacterBB
-启动游戏时候顺序
+启动游戏时候顺序　スタートの流れ
 UWorld::SpawnPlayActor()
 |
 AGameModeBase::HandleStartingNewPlayer()
