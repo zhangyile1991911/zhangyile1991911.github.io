@@ -41,15 +41,18 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_XXXParams
 
 ### 02-28
 向屏幕上打印调试信息
+```
 GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,*(FString::Printf(
 TEXT("Movement - IsCrouched:%d | IsSprinting:%d"), bIsCrouched, bIsRunning)));
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_
+```
 通过宏生成监听class
 内部通过TArray管理监听函数，所以按照先进先调用顺序
 继承顺序
 UOBJECT->AActor->APawn->ACharacter->ACharacterBB
 启动游戏时候顺序　
 スタートの流れ
+```
 UWorld::SpawnPlayActor()
 |
 AGameModeBase::HandleStartingNewPlayer()
@@ -61,6 +64,7 @@ AGameModeBase::RestartPlayerAtPlayerStart()
 AGameModeBase::FinishRestartPlayer()
 |
 AController::Possess()
+```
 
 ### 02-29
 https://www.youtube.com/watch?v=ErVcuQXTm_c
@@ -68,7 +72,7 @@ https://www.youtube.com/watch?v=ErVcuQXTm_c
 UE_LOGFMT
 
 转换enum，重载++和--操作符
-
+```
 UENUM(BlueprintType)
 enum class EHudViewMode: uint8
 {
@@ -96,7 +100,7 @@ inline EHudViewMode& operator--(EHudViewMode& ViewMode)
        ViewMode = static_cast<EHudViewMode>(static_cast<int>(ViewMode) - 1);
     return ViewMode;
 }
-
+```
 
 ### 03-05
 使用Interp将变量暴露给Animations中使用
