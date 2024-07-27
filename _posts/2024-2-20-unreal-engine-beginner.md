@@ -48,7 +48,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_
 内部通过TArray管理监听函数，所以按照先进先调用顺序
 继承顺序
 UOBJECT->AActor->APawn->ACharacter->ACharacterBB
-启动游戏时候顺序　スタートの流れ
+启动游戏时候顺序　
+スタートの流れ
 UWorld::SpawnPlayActor()
 |
 AGameModeBase::HandleStartingNewPlayer()
@@ -386,33 +387,31 @@ Version=5
 在那之后，你只需要把你的工程以debug game形式（无代码优化）或者development形式（代码有优化）在vs里面启动，就会自动进入你看到的那个状态。
 
 ### 7-17
-Beginplay() 呼び出しタイミングは固めてないから　他の仕組みで制御したほうがいいと思うんですけど。
-例えばBeginplayを放棄して　自分がmodule生成順番を管理します
-今はプロジェクトが終わる段階だから
+Beginplay() 呼び出しタイミングは固まってないから　他の仕組みで制御したほうがいいと思うんですけど。
+例えばBeginplayを放棄して　自分がmodule生成順番を管理します今はプロジェクトが終わる段階だから
 
 
-7-19
+### 7-19
 遇到问题 输入回车键 没有正确跳转到场景 开始游戏
 调查思路
-1 确认 回车键 对应代码是否有被正确执行 -> 通过log确认
-2 重新打包完成 确定有log输出 说明按键有被正确回调
-3 查看 加载地图信息
-4 地图文件 没有被正确打包 加载错误
-5 发现json文件没有被正确打包
-6 google 搜索 unreal engine how to package json file
+1. 确认 回车键 对应代码是否有被正确执行 -> 通过log确认
+2. 重新打包完成 确定有log输出 说明按键有被正确回调
+3. 查看 加载地图信息
+4. 地图文件 没有被正确打包 加载错误
+5. 发现json文件没有被正确打包
+6. google 搜索 unreal engine how to package json file
 
-障害が出てきた時の考え方
-障害一覧
+#### 障害が出てきた時の考え方
+- 障害一覧
 エンターキーを押すと正しく画面が遷移しなかった。
-調査順番
-
-１　Packageの設置の問題ですか　キーボード正しく捕獲出来ますか
-１－１　input処理部分のコードにLogを追加
-１－２　Logが正しく出力した、エンターキーが対応するコードを実行、この部分問題なし
-２　地図のデータを読み込むことを確認
-２－１　Logを通じてデータを読み込まなかったことを確認
-２－２　データのファイルが存在ことを確認
-２－３　パッケージ際このデータのファイルが含まれてない
-２－４　googleを用いて英語で調査  
-"unreal engine how to package json file"
+- 調査順番
+1. Packageの設置の問題ですか　キーボード正しく捕獲出来ますか
+2. input処理部分のコードにLogを追加
+3. Logが正しく出力した、エンターキーが対応するコードを実行、この部分問題なし
+4. 地図のデータを読み込むことを確認
+5. Logを通じてデータを読み込まなかったことを確認
+6. データのファイルが存在ことを確認
+7. パッケージ際このデータのファイルが含まれてない
+8. googleを用いて英語で調査「unreal engine how to package json file」  
+9. パッケージの項目を設置する
 ![Desktop View](UnrealEngine/packagesetting.jpg)
