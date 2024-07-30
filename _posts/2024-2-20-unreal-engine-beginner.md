@@ -416,6 +416,6 @@ Beginplay() 呼び出しタイミングは固まってないから　他の仕�
 5. Logを通じてデータを読み込まなかったことを確認
 6. データのファイルが存在ことを確認
 7. パッケージ際このデータのファイルが含まれてない
-8. googleを用いて英語で調査「unreal engine how to package json file」  
+8. googleで英語を用いて調査「unreal engine how to package json file」  
 9. パッケージの項目を設置する
 ![Desktop View](UnrealEngine/packagesetting.jpg)
