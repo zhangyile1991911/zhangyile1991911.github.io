@@ -25,7 +25,7 @@ image:
 > UGameInstanceSubsystem 提供一个和游戏一样的生命周期 ゲームと同じライフ・タイム
 
 > PIE生成順番
-UGameInstanceSubsystem -> UWorldSubsystem
+UGameInstanceSubsystem -> UWorldSubsystem -> GameMode
 
 
 ### FTickableGameObject
@@ -46,5 +46,22 @@ void DoSomthing_Implementation()
 //C++提供默认实现
 //由Blueprint提供实现，如果Blueprint没有提供对应的实现
 //那就使用C++中 提供的实现
+```
+
+
+### GameInstanceSubsystemの依存関係
+```
+//如果 ASubsystem依赖BSubsystem
+//可以通过在ASubsystem中调用InitializeDependency 来初始化 BSubsystem
+//ASubsystemがBSubsystemを依存するなら
+//UASubsystem::InitializeでInitializeDependency関数を呼ぶことで
+//BSubsystemの初期化を読んでおきます
+void UASubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+    Super::Initialize(Collection);
+    bIsInitialized = true;
+    UBSubsystem* first = Cast<UBSubsystem>(Collection.InitializeDependency(UBSubsystem::StaticClass()));
+    UE_LOG(LogTemp,Log,TEXT("UASubsystem::Initialize %d"),first->bIsInitialized)
+}
 ```
 
