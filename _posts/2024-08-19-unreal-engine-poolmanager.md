@@ -14,7 +14,7 @@ image:
 
 ### UWorldsubsystem　と　UGameInstanceSubsystem
 
-> UWorldSubsystem 提供一个和当前UWorld 共同生命周期
+> UWorldSubsystem 提供一个和当前UWorld共同生命周期 UWorldと同じライフ・タイム
 
 在Editor中会有多个UWorld
 启动Editor->Editor
@@ -22,7 +22,7 @@ image:
 打开Blueprint->EditorPreview
 打开模型预览->EditorPreview
 
-> UGameInstanceSubsystem 提供一个和游戏一样的生命周期
+> UGameInstanceSubsystem 提供一个和游戏一样的生命周期 ゲームと同じライフ・タイム
 
 > PIE生成順番
 UGameInstanceSubsystem -> UWorldSubsystem
@@ -40,11 +40,11 @@ UGameInstanceSubsystem -> UWorldSubsystem
 
 ### BlueprintNativeEvent
 ```
-    UFUNCTION(BlueprintNativeEvent,BlueprintPure) 
-    void DoSomthing()
-    void DoSomthing_Implementation() 
-    //C++提供默认实现
-    //由Blueprint提供实现，如果Blueprint没有提供对应的实现
-    //那就使用C++中 提供的实现
+UFUNCTION(BlueprintNativeEvent,BlueprintPure) 
+void DoSomthing()
+void DoSomthing_Implementation() 
+//C++提供默认实现
+//由Blueprint提供实现，如果Blueprint没有提供对应的实现
+//那就使用C++中 提供的实现
 ```
 
