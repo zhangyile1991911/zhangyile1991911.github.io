@@ -44,8 +44,8 @@ UFUNCTION(BlueprintNativeEvent,BlueprintPure)
 void DoSomthing()
 void DoSomthing_Implementation() 
 //C++提供默认实现
-//由Blueprint提供实现，如果Blueprint没有提供对应的实现
-//那就使用C++中 提供的实现
+//由Blueprint提供实现，如果Blueprint没有提供对应的实现那就使用C++中 提供的实现
+//blueprintで実現し、もしblueprintで提供してないなら、C++の実現を利用する
 ```
 
 
@@ -55,7 +55,7 @@ void DoSomthing_Implementation()
 //可以通过在ASubsystem中调用InitializeDependency 来初始化 BSubsystem
 //ASubsystemがBSubsystemを依存するなら
 //UASubsystem::InitializeでInitializeDependency関数を呼ぶことで
-//BSubsystemの初期化を読んでおきます
+//BSubsystemの初期化を実行しておきます
 void UASubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
     Super::Initialize(Collection);
@@ -65,3 +65,10 @@ void UASubsystem::Initialize(FSubsystemCollectionBase& Collection)
 }
 ```
 
+### UI最適化
+```
+Invalidation Box：适用于不需要频繁更新的静态 UI 场景。它通过缓存来减少不必要的重绘，适合优化大型、复杂但大部分时间不变的 UI。
+
+Retainer Box：适用于需要更灵活控制更新频率的动态 UI 场景。它通过将内容渲染到 Render Target 上来减少绘制次数，并允许你设置更新频率，从而在性能与视觉效果之间找到平衡。
+```
+ 
