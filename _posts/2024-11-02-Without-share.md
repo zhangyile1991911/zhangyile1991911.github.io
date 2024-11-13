@@ -20,7 +20,7 @@ image:
 ## デバッグ
 ### ノードに名前をつける
 ![Desktop View](company_without/have_name_node.png)
-![Desktop View](company_without/no_name_node.png)
+![Desktop View](company_without/no_name_node.jpg)
 ### prefabの生成を集計する方法
 バトルのメモリを軽量化する時に　どうやってメモリの使い情報を知れるか。
 もしcc.instantiate呼び出すところをprefabの名前と回数を知ればいいと思います。
@@ -247,11 +247,11 @@ function aggregateSpriteFrame() {
 #### Performance
 [1] devtoolsを開く
 [2] recordを始める
-![Desktop View](company_without/performance_step_1.png)
+![Desktop View](company_without/performance_step_1.jpg)
 [3] 目立つところを探す
-![Desktop View](company_without/performance_step_2.png)
+![Desktop View](company_without/performance_step_2.jpg)
 [4] 問題ところを詳しく分析する
-![Desktop View](company_without/performance_step_3.png)
+![Desktop View](company_without/performance_step_3.jpg)
 
 #### Network
 
