@@ -126,6 +126,37 @@ let result = [];
 this.visitAllNodeFindName(this.node, [], 'AbnormalStateIcon', result);
 result.forEach(one => console.log('BattleLoader', 'cleanup', one));
 ```
+#### プール化効果
+する前に
+```
+prefab  AbnormalStateIcon  生成された回数  136
+prefab  StateAssignEffect  生成された回数 49
+spine/effect/ef_flash_001 生成された回数  45
+```
+した後に
+```
+prefab  AbnormalStateIcon  生成された回数  50
+prefab  StateAssignEffect  生成された回数  10
+spine/effect/ef_flash_001 生成された回数  1
+```
+
+```
+_battleSpineMap pool spine_effect_ef_flash_001                      create num 1 use num 35
+_battleSpineMap pool spine_effect_ef_300201_002Add                  create num 4 use num 10
+_battleSpineMap pool spine_effect_ef_comHit_thunder_r_02            create num 1 use num 5
+_battleSpineMap pool spine_effect_ef_204605_001                     create num 1 use num 7
+_battleSpineMap pool spine_eventkey_eventkey_uni22110201_01         create num 1 use num 6
+_battleSpineMap pool spine_effect_ef_comSlash_light_r_02            create num 1 use num 6
+_battleSpineMap pool spine_effect_se_ef_comSwordLight               create num 1 use num 6
+_battleSpineMap pool spine_effect_ef_comDischargeLight_light_r_01   create num 1 use num 4
+_battleSpineMap pool spine_effect_se_ef_comDischargeLight_r_01      create num 1 use num 4
+_battleSpineMap pool spine_effect_ef_comHitRandom_light_r_01        create num 2 use num 12
+_battleSpineMap pool spine_eventkey_eventkey_ef_comRod_r_01         create num 1 use num 5
+_battleSpineMap pool spine_effect_ef_comRod_r_01                    create num 1 use num 5
+_battleSpineMap pool spine_eventkey_eventkey_ef_comGun_r_01         create num 1 use num 5
+_battleSpineMap pool spine_effect_ef_comGun_r_01                    create num 1 use num 5
+```
+
 #### Cleanupに関して
 ```
 Component -> safeCleanup -> cleanup
@@ -153,7 +184,7 @@ this.abnormalStateIconsRoot.children.forEach(child => {
   //4xslowdown create_pool_noasync: 95.0087890625 ms
 ```
 
-### parralelの結果
+### parrallelの結果
 ```
 console.time('create_pool_async');
   const task = [
