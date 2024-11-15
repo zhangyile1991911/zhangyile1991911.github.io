@@ -250,7 +250,7 @@ function aggregateSpriteFrame() {
 ![Desktop View](company_without/performance_step_1.jpg)
 [3] 目立つところを探す
 ![Desktop View](company_without/performance_step_2.jpg)
-[4] 問題ところを詳しく分析する
+[4] 問題のところを詳しく分析する
 ![Desktop View](company_without/performance_step_3.jpg)
 
 #### Network
