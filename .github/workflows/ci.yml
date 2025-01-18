@@ -30,9 +30,19 @@ jobs:
         with:
           ruby-version: 3
           bundler-cache: true
+          
+      # Step 3: Debug Ruby Environment (Optional)
+      - name: Check Ruby CSV
+        run: ruby -e "require 'csv'" || echo 'CSV library not found'
+
+      # Step 4: Install Jekyll and dependencies
+      - name: Install Dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Use a stable Node.js version
 
       - name: Build Assets
         run: npm i && npm run build
