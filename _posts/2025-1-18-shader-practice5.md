@@ -1,7 +1,7 @@
 ---
 title: ShaderGraphの練習5
 author: zhangyile
-date: 2025-01-18 10:40:00 +0800
+date: 2025-01-17 10:40:00 +0800
 categories: [Shader Graph]
 tags: [Indie Game,Shader Graph]
 comments: false
