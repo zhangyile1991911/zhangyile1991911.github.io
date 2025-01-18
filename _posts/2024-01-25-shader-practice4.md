@@ -13,7 +13,7 @@ image:
 ---
 
 
->　このブログでは、BaseMeshEffectとShader使用して本をめくる効果を紹介します。
+>　このブログでは、BaseMeshEffectとShader使用して本を巻く効果を紹介します。
 
 
 ## 手順
