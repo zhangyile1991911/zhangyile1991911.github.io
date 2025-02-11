@@ -1,5 +1,5 @@
 ---
-title: Blueprintのバグの修復
+title: エフェクト・デモ
 author: zhangyile
 date: 2025-02-11 10:55:00 +0800
 categories: [Without]
