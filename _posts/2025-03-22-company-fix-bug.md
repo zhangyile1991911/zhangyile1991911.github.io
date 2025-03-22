@@ -1,13 +1,13 @@
 ---
 title: バグ調査「ノードを回収する前に破棄された」
 author: zhangyile
-date: 2024-8-18 09:42:00 +0800
-categories: [work daily]
-tags: [work,Development]
+date: 2025-3-21 09:42:00 +0800
+categories: [Work Log]
+tags: [Work,Development]
 comments: false
 img_path: /assets/img/
 image:
-  path: UnrealEngine/unrealenginetitle.jpg
+  path: UnrealEngine/isogashii_man.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
@@ -68,7 +68,8 @@ addChild (child, zIndex, name) {
 8. 仮説を検証してみようと思います
 9. ２つ場所でログを出力し、一つプールに入れる前に、も一つ親ノードに追加する前に
 10. 問題はすぐ明きました。
-11. 下記のコードで簡単説明
+11. 原因を説明します
+> 下記のコードで簡単説明
 ```
 const node = pool.get();
 dosomething(node);
