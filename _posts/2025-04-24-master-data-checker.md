@@ -35,4 +35,4 @@ image:
 ![Desktop View](company_without/master-checker-4.png)
 
 > 絞り込み機能。もしこの中に一つExcelを集中しようとする場合もあります。Excel名を左上ボックスに入力したら、このExcelに関連チェックしか表示しないようになります。
-![Desktop View](company_without/master-checker-5.png)
+![Desktop View](company_without/master-checker-5.jpg)
