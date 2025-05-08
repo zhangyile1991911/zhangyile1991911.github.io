@@ -24,42 +24,42 @@ LRUとは　The Least Recently Used Cache
 
 ### 例で説明する
 - ユーザー動作　　　
-    ゲームが起動した時、ログイン画面が開いた
+    - ゲームが起動した時、ログイン画面が開いた
 - ロジック側　　　　
-    スタックが空き枠があり、LoginWindowを入れた
+    - スタックが空き枠があり、LoginWindowを入れた
 ![Desktop View](s1.jpg){: width="284" height="384" .w-75 .normal}
 
 - ユーザー動作　
-    そしてキャラクター一覧画面を開いてキャラー育成素材を確認したくなる
+    - そしてキャラクター一覧画面を開いてキャラー育成素材を確認したくなる
 - ロジック側
-    スタックが空き枠があり、CharaWindowを入れた
+    - スタックが空き枠があり、CharaWindowを入れた
 ![Desktop View](s2.jpg){: width="284" height="384" .w-75 .normal}
 
 - ユーザー動作
-    バッグ画面を開いて持っているアイテムを確認してから、素材を購入しようと思ってショップ画面に遷移します。
+    - バッグ画面を開いて持っているアイテムを確認してから、素材を購入しようと思ってショップ画面に遷移します。
 - ロジック側
-    スタックが空き枠があり、BagWindowを入れた
+    - スタックが空き枠があり、BagWindowを入れた
 ![Desktop View](s3.jpg){: width="284" height="384" .w-75 .normal}
 
 - ユーザー動作
-    ショップ画面を開いて購入しようアイテムを忘れてバッグ画面に戻ります
+    - ショップ画面を開いて購入しようアイテムを忘れてバッグ画面に戻ります
 - ロジック側
-    スタックが空き枠があり、 ShopWindowを入れた
+    - スタックが空き枠があり、 ShopWindowを入れた
 ![Desktop View](s4.jpg){: width="284" height="384" .w-75 .normal}
 
 - ユーザー動作
-    バッグ画面を開いた途端メールボックスにログイン報酬を思い出した
+    - バッグ画面を開いた途端メールボックスにログイン報酬を思い出した
 - ロジック側
-    BagWindowの使った回数に１とタイムスタンプを足す。回数だけ増加することに不親切なことが起きますかも。例えば繰り返してバッグ画面を開いた。バッグ画面の使った回数が大きな数字になってスタックに常駐になります。だからタイムスタンプ値を加えます。ずっと前に１００回以上開いた画面であっても廃棄されます
+    - BagWindowの使った回数に１とタイムスタンプを足す。回数だけ増加することに不親切なことが起きますかも。例えば繰り返してバッグ画面を開いた。バッグ画面の使った回数が大きな数字になってスタックに常駐になります。だからタイムスタンプ値を加えます。ずっと前に１００回以上開いた画面であっても廃棄されます
 ![Desktop View](s5.jpg){: width="284" height="384" .w-75 .normal}
 
 - ユーザー動作
-    メール画面を開いて
+    - メール画面を開いて
 - ロジック側
-    スタックが満載なので一番古いLoginWindowオブジェクトを削除した
+    - スタックが満載なので一番古いLoginWindowオブジェクトを削除した
 ![Desktop View](s6.jpg){: width="284" height="384" .w-75 .normal}
 
->特別で常駐する画面[MainWindow]が他の処理で廃棄されないようにする
+> 特別で常駐する画面[MainWindow]が他の処理で廃棄されないようにする
 
 ### 自動的にバンディング,UIページのコードを生成する
 1. 画面を組み立てバンディングしたいオブジェクトを一定名前をつける
@@ -72,9 +72,12 @@ LRUとは　The Least Recently Used Cache
 ## 生成Windowボタンを押す
 1. プレハブが自動的に生成された
 ![Desktop View](s10.jpg){: width="588" height="200" .w-75 .normal}
+
 2. 2.対応するコードが自動的にも生成された
 ![Desktop View](s11.jpg){: width="579" height="174" .w-75 .normal}
+
 3. 生成されたコード
+
 ```
 using System.Collections;
 using System.Collections.Generic;
@@ -99,7 +102,6 @@ public partial class LoginWindow : UIWindow
     public override void Init(GameObject go)
     {
         uiGo = go;
-        
         Img_bg = go.transform.Find("Img_bg").GetComponent<Image>();
         Txt_Title = go.transform.Find("Txt_Title").GetComponent<TextMeshProUGUI>();
         Txt_UserName = go.transform.Find("Txt_UserName").GetComponent<TextMeshProUGUI>();
