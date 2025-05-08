@@ -78,7 +78,7 @@ LRUとは　The Least Recently Used Cache
 
 3. 生成されたコード
 
-```
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

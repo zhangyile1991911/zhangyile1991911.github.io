@@ -53,7 +53,7 @@ phoneでEnemyA::update—>EnemyC::update—→EnemyB::updateになるかもし�
 不思議なバグが出るとか再現しにくくなりますから、UpdateServiceとTimerServiceという管理クラスを作ろうとします.
 下記は想定コードです。
 
-```
+```csharp
 class UpdateService
 {
     SortedList<Func<float>> funcList;
@@ -100,7 +100,7 @@ levelにより、
 > 例えば ゲーム起動からログイン済みまでの流れ状態遷移
 ![Desktop View](company_without/statemachine.jpg){: width="600" height="500" .w-75 .normal}
 > 仮コードで説明する
-```
+```csharp
 interface IState
 {
     void Enter();
@@ -283,7 +283,7 @@ class GameScene : IState
 
 ## イベント事件を放送管理システム
 Path Matchingというアリゴリズムを利用して放送システムを作成します
-```
+```csharp
 //ユーザに関してPathを定義します
 OutGame.User.Status.AP.Add
 OutGame.User.Status.AP.Sub
