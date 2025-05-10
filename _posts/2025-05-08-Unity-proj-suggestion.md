@@ -14,25 +14,27 @@ image:
 ### 開発に便利化させるPlugin
 ## ゲーム内リストとグリッドプラジンplugin
 [**ugui-super-scrollview**](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)
-> メリット
+# メリット
 1. オブジェクト生成回数を減らすため
 2. 色んなリストとグリッドの仕様やパタンが揃われている
 
 ## 敵やNPCのAI開発ツール
 [**MonoBehaviourTree**](https://github.com/Qriva/MonoBehaviourTree)
 # メリット
-1. 拡張性が高く、しやすいです。
-2. service,sequence,taskという基本コンポーネントが含まれています。
+1. 拡張性が高く、カスタマイズしやすいです。
+2. service,sequence,taskという基盤なコンポーネントが含まれています。
     
 ## マスターデーター
 [**luban**](https://github.com/focus-creative-games/luban)
 # メリット
 1. カラムに数字で入力するより文字の方が読みやすいです。
+
 | ItemId  | ItemType | Name    |
 | :------ | :--------| ------: |
 | 10001   | 硬貨      |         |
 | 20001   | AP回復薬  | CCCCCC  |
 | 30001   | BP回復薬  | BDDDDDD |
+
 2. ExcelでEnumを定義したら、Client側でもServer側でも統一されます。プログラマーがプランナーと揉めることを退げる。
 3. 新入りメンバーにとってすぐ分かって力になれる気をさせるメリットもあります。
 4. 主流な開発言語を生成できる
@@ -41,15 +43,16 @@ image:
 ### 基盤システム
 
 ## UIの管理システム
-    [**UI管理のフレームワーク**](https://github.com/Qriva/MonoBehaviourTree)
+[**UI管理のフレームワーク**](https://github.com/Qriva/MonoBehaviourTree)
 
 ## エンジン内でUpdateやFixedUpdateやTimerなど管理システム
 # 理由
 例えば、Enemyクラスの幾つ対象が生成された場合、対象ごとにupdateでロジック処理が行います。
 EnemyA,EnemyB,EnemyC 三つの対象のupdate関数を呼ばれる順番がプラットフォームや機種により、一定ではりません。
-EditorでEnemyC::update—>EnemyB::update—→EnemyA::updateになるかもしれません
-WebでEnemyA::update—>EnemyB::update—→EnemyC::updateになるかもしれません。
-phoneでEnemyA::update—>EnemyC::update—→EnemyB::updateになるかもしれません。
+
+- EditorでEnemyC::update—>EnemyB::update—→EnemyA::updateになるかもしれません
+- WebでEnemyA::update—>EnemyB::update—→EnemyC::updateになるかもしれません。
+- phoneでEnemyA::update—>EnemyC::update—→EnemyB::updateになるかもしれません。
 不思議なバグが出るとか再現しにくくなりますから、UpdateServiceとTimerServiceという管理クラスを作ろうとします.
 下記は想定コードです。
 
@@ -89,7 +92,7 @@ A
 リスト
 システムにより、指定した色で出力できます。
 システムにより、システムの名をprefixとして出力できます。問題調査の時にフィルタで簡単に集中したい内容やLogをはみ出します。
-levelにより、
+levelにより、設定したレベルが低いLogを出力されないです
 ```
 [ItemSystem] 2025-05-05 13:33:00 xxx Id が足りない
 [CharaSystem] 2025-05-05 13:33:00 xxx Id が存在しない
@@ -98,8 +101,11 @@ levelにより、
 
 ## 状態の遷移や管理などステートマシンStateMachine
 > 例えば ゲーム起動からログイン済みまでの流れ状態遷移
+
 ![Desktop View](company_without/statemachine.jpg){: width="600" height="500" .w-75 .normal}
+
 > 仮コードで説明する
+
 ```csharp
 interface IState
 {
