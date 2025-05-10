@@ -12,7 +12,7 @@ image:
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
-### 概要
+## 概要
 UIページの管理はLRUというアルゴリズムで管理します。
 LRUとは　The Least Recently Used Cache
 
@@ -69,7 +69,7 @@ LRUとは　The Least Recently Used Cache
 3. 生成するノードを枠に引き入れる
 ![Desktop View](ui_framework/s9.jpg){: width="714" height="405" .w-75 .normal}
 
-## 生成Windowボタンを押す
+### 生成Windowボタンを押す
 1. プレハブが自動的に生成された
 ![Desktop View](ui_framework/s10.jpg){: width="588" height="200" .w-75 .normal}
 
