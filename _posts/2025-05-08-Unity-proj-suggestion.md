@@ -13,19 +13,19 @@ image:
 ---
 # 開発に便利化させるPlugin
 
-### ゲーム内リストとグリッドプラジンplugin
+## ゲーム内リストとグリッドプラジンplugin
 [**ugui-super-scrollview**](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)
 # メリット
 1. オブジェクト生成回数を減らすため
 2. 色んなリストとグリッドの仕様やパタンが揃われている
 
-### 敵やNPCのAI開発ツール
+## 敵やNPCのAI開発ツール
 [**MonoBehaviourTree**](https://github.com/Qriva/MonoBehaviourTree)
 #### メリット
 1. 拡張性が高く、カスタマイズしやすいです。
 2. service,sequence,taskという基盤なコンポーネントが含まれています。
     
-### マスターデーター
+## マスターデーター
 [**luban**](https://github.com/focus-creative-games/luban)
 # メリット
 1. カラムに数字で入力するより文字の方が読みやすいです。
@@ -44,11 +44,11 @@ image:
 
 # 基盤システム
 
-### UIの管理システム
+## UIの管理システム
 [**UI管理のフレームワーク**](https://github.com/Qriva/MonoBehaviourTree)
 
-### エンジン内でUpdateやFixedUpdateやTimerなど管理システム
-#### 理由
+## エンジン内でUpdateやFixedUpdateやTimerなど管理システム
+### 理由
 例えば、Enemyクラスの幾つ対象が生成された場合、対象ごとにupdateでロジック処理が行います。
 EnemyA,EnemyB,EnemyC 三つの対象のupdate関数を呼ばれる順番がプラットフォームや機種により、一定ではりません。
 
@@ -91,7 +91,7 @@ A
 ```
 
 
-### Log出力管理システム
+## Log出力管理システム
 リスト
 - システムにより、指定した色で出力できます。
 - システムにより、システムの名をprefixとして出力できます。問題調査の時にフィルタで簡単に集中したい内容やLogをはみ出します。
@@ -102,7 +102,7 @@ A
 [GachaSystem] 2025-05-05 13:33:00 リクエストが発送失敗
 ```
 
-### 状態の遷移や管理などステートマシンStateMachine
+## 状態の遷移や管理などステートマシンStateMachine
 例えば ゲーム起動からログイン済みまでの流れ状態遷移
 
 ![Desktop View](company_without/statemachine.jpg){: width="600" height="500" .w-75 .normal}
@@ -288,9 +288,9 @@ class GameScene : IState
     }
 }
 ```
-### ObjectPool
+## ObjectPool
 
-### イベント事件を放送管理システム
+## イベント事件を放送管理システム
 Path Matchingというアリゴリズムを利用して放送システムを作成します
 
 ```csharp
@@ -367,6 +367,6 @@ BroadcastService.TriggerEvent("OutGame.User.Status.BP.Add",usparam);
 t4
 ```
 
-### ネット状況監視システム
-### ADVシステム
-### 音や音楽再生管理システム
+## ネット状況監視システム
+## ADVシステム
+## 音や音楽再生管理システム
