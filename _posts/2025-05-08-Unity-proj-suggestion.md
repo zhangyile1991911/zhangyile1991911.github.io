@@ -31,7 +31,7 @@ image:
 
 | ItemId  | ItemType | Name    |
 | :------ | :--------| ------: |
-| 10001   | 硬貨      |         |
+| 10001   | 硬貨      |  AAAA   |
 | 20001   | AP回復薬  | CCCCCC  |
 | 30001   | BP回復薬  | BDDDDDD |
 
@@ -53,6 +53,7 @@ EnemyA,EnemyB,EnemyC 三つの対象のupdate関数を呼ばれる順番がプ�
 - EditorでEnemyC::update—>EnemyB::update—→EnemyA::updateになるかもしれません
 - WebでEnemyA::update—>EnemyB::update—→EnemyC::updateになるかもしれません。
 - phoneでEnemyA::update—>EnemyC::update—→EnemyB::updateになるかもしれません。
+
 不思議なバグが出るとか再現しにくくなりますから、UpdateServiceとTimerServiceという管理クラスを作ろうとします.
 下記は想定コードです。
 
@@ -90,9 +91,9 @@ A
 
 ## Log出力管理システム
 リスト
-システムにより、指定した色で出力できます。
-システムにより、システムの名をprefixとして出力できます。問題調査の時にフィルタで簡単に集中したい内容やLogをはみ出します。
-levelにより、設定したレベルが低いLogを出力されないです
+- システムにより、指定した色で出力できます。
+- システムにより、システムの名をprefixとして出力できます。問題調査の時にフィルタで簡単に集中したい内容やLogをはみ出します。
+- levelにより、設定したレベルが低いLogを出力されないです
 ```
 [ItemSystem] 2025-05-05 13:33:00 xxx Id が足りない
 [CharaSystem] 2025-05-05 13:33:00 xxx Id が存在しない
@@ -100,11 +101,11 @@ levelにより、設定したレベルが低いLogを出力されないです
 ```
 
 ## 状態の遷移や管理などステートマシンStateMachine
-> 例えば ゲーム起動からログイン済みまでの流れ状態遷移
+例えば ゲーム起動からログイン済みまでの流れ状態遷移
 
 ![Desktop View](company_without/statemachine.jpg){: width="600" height="500" .w-75 .normal}
 
-> 仮コードで説明する
+仮コードで説明する
 
 ```csharp
 interface IState
@@ -289,6 +290,7 @@ class GameScene : IState
 
 ## イベント事件を放送管理システム
 Path Matchingというアリゴリズムを利用して放送システムを作成します
+
 ```csharp
 //ユーザに関してPathを定義します
 OutGame.User.Status.AP.Add
