@@ -15,7 +15,7 @@ image:
 
 ## ゲーム内リストとグリッドプラジンplugin
 [**ugui-super-scrollview**](https://assetstore.unity.com/packages/tools/gui/ugui-super-scrollview-86572)
-# メリット
+#### メリット
 1. オブジェクト生成回数を減らすため
 2. 色んなリストとグリッドの仕様やパタンが揃われている
 
@@ -27,7 +27,7 @@ image:
     
 ## マスターデーター
 [**luban**](https://github.com/focus-creative-games/luban)
-# メリット
+#### メリット
 1. カラムに数字で入力するより文字の方が読みやすいです。
 
 | ItemId  | ItemType | Name    |
@@ -48,7 +48,7 @@ image:
 [**UI管理のフレームワーク**](https://github.com/Qriva/MonoBehaviourTree)
 
 ## エンジン内でUpdateやFixedUpdateやTimerなど管理システム
-### 理由
+#### 理由
 例えば、Enemyクラスの幾つ対象が生成された場合、対象ごとにupdateでロジック処理が行います。
 EnemyA,EnemyB,EnemyC 三つの対象のupdate関数を呼ばれる順番がプラットフォームや機種により、一定ではりません。
 
@@ -57,8 +57,8 @@ EnemyA,EnemyB,EnemyC 三つの対象のupdate関数を呼ばれる順番がプ�
 - phoneでEnemyA::update—>EnemyC::update—→EnemyB::updateになるかもしれません。
 
 不思議なバグが出るとか再現しにくくなりますから、UpdateServiceとTimerServiceという管理クラスを作ろうとします.
-下記は想定コードです。
 
+#### 下記は想定コードです。
 ```csharp
 class UpdateService
 {
@@ -107,8 +107,7 @@ A
 
 ![Desktop View](company_without/statemachine.jpg){: width="600" height="500" .w-75 .normal}
 
-仮コードで説明する
-
+#### 仮コードで説明する
 ```csharp
 interface IState
 {
@@ -293,6 +292,7 @@ class GameScene : IState
 ## イベント事件を放送管理システム
 Path Matchingというアリゴリズムを利用して放送システムを作成します
 
+#### 仮コードで説明する
 ```csharp
 //ユーザに関してPathを定義します
 OutGame.User.Status.AP.Add
