@@ -71,10 +71,11 @@ addChild (child, zIndex, name) {
 10. 問題はすぐ明きました。
 11. 原因を説明します
 > 下記のコードで簡単説明
+
 ```
 const node = pool.get();
 dosomething(node);
-//もし上記のの関数内でノードも戻したら、下のコードを実行し続けばバグがおきます
+//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
 Layer.addchild(node);
 
 function dosomething(node)
