@@ -80,7 +80,10 @@ Pass
         }
 ```
 
-![Desktop View](company/render_z_3.png){: width="875" height="482" .w-75 .normal}右ボックスは正しく深度を書き込んでぼかしされました。
+![Desktop View](company/render_z_3.png){: width="875" height="482" .w-75 .normal}
+
+> 右ボックスは正しく深度を書き込んでぼかしされました。
+
 ![Desktop View](company/render_z_4.png){: width="875" height="482" .w-75 .normal}
 
 ## マトメ
