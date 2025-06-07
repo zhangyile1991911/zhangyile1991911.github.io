@@ -35,10 +35,10 @@ image:
   - 進行方向が違うです.
 
 ### 進行方向
-![Desktop View](company_without/titanslayermove.gif){: width="1398 × 650" height="1398 × 650" .w-75 .normal}
+![Desktop View](company_without/titanslayermove.gif){: width="220" height="497" .w-75 .normal}
 1. タイタンスレヤは一直線で奥行き,地面の巻きと合わせる表現を活かすため
 
-![Desktop View](company_without/headlessmove.gif){: width="1398 × 650" height="1398 × 650" .w-75 .normal}
+![Desktop View](company_without/headlessmove.gif){: width="220" height="497" .w-75 .normal}
 2. 首なし騎士はZ形で前へ進める
 
 ## 分解
@@ -46,6 +46,7 @@ image:
 このゲームは一番重要な表現は地面の巻き戻しです
 
 > 想定の手法
+
 - 地面のメッシュをカメラとの距離により、下に落ちる
 ![Desktop View](company_without/ground_image.png){: width="1398 × 650" height="1398 × 650" .w-75 .normal}
 
