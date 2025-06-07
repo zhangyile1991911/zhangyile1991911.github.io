@@ -48,10 +48,12 @@ image:
 > 想定の手法
 
 - 地面のメッシュをカメラとの距離により、下に落ちる
+
 ![Desktop View](company_without/ground_image.png){: width="570" height="320" .w-75 .normal}
 
 - メッシュの変更イメージ
-![Desktop View](company_without/ground_mesh.png){: width="360" height="800" .w-75 .normal}
+
+![Desktop View](company_without/ground_mesh.png){: width="180" height="400" .w-75 .normal}
 
 ### 首なし騎士：異世界伝説
 
