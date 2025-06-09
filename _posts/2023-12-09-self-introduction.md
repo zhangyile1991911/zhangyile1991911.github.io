@@ -10,10 +10,11 @@ pin: true
 ---
 
 > スキル
-- C++ 3年
+- C++ 4年以上
 - C#　3年
 - Golang 3年以上
 - Unity 3年
+- Unreal 1年以上(独学)
 - Cocos2dx 2年
 {: .prompt-tip }
 
