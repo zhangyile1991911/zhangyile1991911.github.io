@@ -13,22 +13,28 @@ image:
 ---
 
 ## 前提
-    プランナー側がマップ配置作業を素早くさせるため、指定される範囲内でプレハブ生成ツールを作成します。
+
+> プランナー側がマップ配置作業を素早くさせるため、指定される範囲内でプレハブ生成ツールを作成します。
 
 ## Window概覧
+
 ![Desktop View](company_without/placeprefab01.png){: width="638" height="384" .w-75 .normal}
 
 ## プレハブを指定
+
 ![Desktop View](company_without/placeprefab02.png){: width="640" height="270" .w-75 .normal}
 
 ## ルール配置
+
 ![Desktop View](company_without/placeprefab03.png){: width="642" height="213" .w-75 .normal}
 
 ## 長方形範囲で生成する
+
 ![Desktop View](company_without/placerectangle.gif){: width="642" height="425" .w-75 .normal}
 
 
 ##　円範囲で生成する
+
 ![Desktop View](company_without/placecircle.gif){: width="642" height="425" .w-75 .normal}
 
 ## コード
