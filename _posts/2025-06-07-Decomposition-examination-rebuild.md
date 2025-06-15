@@ -36,7 +36,7 @@ image:
 
 ### 進行方向
 ![Desktop View](company_without/titanslayermove.gif){: width="220" height="497" .w-75 .normal}
-1. タイタンスレヤは一直線で奥行き,地面の巻きと合わせる表現を活かすため
+1. タイタンスレヤは一直線で奥行き,地面の巻きと噛み合わせることで表現を活かすため
 
 ![Desktop View](company_without/headlessmove.gif){: width="220" height="497" .w-75 .normal}
 2. 首なし騎士はZ形で前へ進める
@@ -57,7 +57,8 @@ image:
 
 ### 首なし騎士：異世界伝説
 
+
 ## 再現
 
 
-
+## マトメ
