@@ -33,7 +33,7 @@ image:
 ![Desktop View](company_without/placerectangle.gif){: width="642" height="425" .w-75 .normal}
 
 
-##　円範囲で生成する
+## 円範囲で生成する
 
 ![Desktop View](company_without/placecircle.gif){: width="642" height="425" .w-75 .normal}
 
