@@ -55,10 +55,31 @@ image:
 
 ![Desktop View](company_without/ground_mesh.png){: width="180" height="400" .w-75 .normal}
 
-### 首なし騎士：異世界伝説
-
-
 ## 再現
 
+```
+Varyings vert (Attributes input)
+{
+    Varyings output;
+    
+    float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+
+    float3 cameraWorldPos = _WorldSpaceCameraPos;
+    float distanceToCamera = abs(positionWS.z - cameraWorldPos.z);
+    output.blur = step(_CameraDist, distanceToCamera);
+    
+    float maxDownValue = 50;
+    float down = smoothstep(_DownStart, (_DownStart + maxDownValue) * _DownAmplify , distanceToCamera);
+    float downValue = clamp(0, maxDownValue, distanceToCamera - _DownStart);
+    positionWS.y -= downValue * down;
+    
+    output.positionHCS = TransformWorldToHClip(positionWS);
+    output.uv = TRANSFORM_TEX(input.uv, _MainTex);
+    
+    return output;
+}
+```
+
+![Desktop View](company_without/ground_roll_mesh.png){: width="180" height="400" .w-75 .normal}
 
 ## マトメ
