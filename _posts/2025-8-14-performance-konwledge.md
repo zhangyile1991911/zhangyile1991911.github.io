@@ -1,5 +1,5 @@
 ---
-title: 最適化基本知識
+title: Timerについて考え
 author: zhangyile
 date: 2025-8-14 09:42:00 +0800
 categories: [Work Log]
