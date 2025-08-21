@@ -37,47 +37,47 @@ PostProcessのDepth Of Fieldを用いて手前の風景をぼかししようと�
 
 ```
 Pass
-        {
-            Name "DepthNormalsOnly"
-            Tags
-            {
-                "LightMode" = "DepthNormalsOnly"
-            }
+{
+    Name "DepthNormalsOnly"
+    Tags
+    {
+        "LightMode" = "DepthNormalsOnly"
+    }
 
-            // -------------------------------------
-            // Render State Commands
-            ZWrite On
-	          ZTest LEqual
-						ColorMask 0
-            HLSLPROGRAM
-            #pragma target 2.0
+    // -------------------------------------
+    // Render State Commands
+    ZWrite On
+    ZTest LEqual
+    ColorMask 0
+    HLSLPROGRAM
+    #pragma target 2.0
 
-            // -------------------------------------
-            // Shader Stages
-            #pragma vertex DepthNormalsVertex
-            #pragma fragment DepthNormalsFragment
+    // -------------------------------------
+    // Shader Stages
+    #pragma vertex DepthNormalsVertex
+    #pragma fragment DepthNormalsFragment
 
-            // -------------------------------------
-            // Material Keywords
-            #pragma shader_feature_local _ALPHATEST_ON
+    // -------------------------------------
+    // Material Keywords
+    #pragma shader_feature_local _ALPHATEST_ON
 
-            // -------------------------------------
-            // Universal Pipeline keywords
-            #pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT // forward-only variant
-            #pragma multi_compile _ LOD_FADE_CROSSFADE
-            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl"
+    // -------------------------------------
+    // Universal Pipeline keywords
+    #pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT // forward-only variant
+    #pragma multi_compile _ LOD_FADE_CROSSFADE
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/RenderingLayers.hlsl"
 
-            //--------------------------------------
-            // GPU Instancing
-            #pragma multi_compile_instancing
-            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
+    //--------------------------------------
+    // GPU Instancing
+    #pragma multi_compile_instancing
+    #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
 
-            // -------------------------------------
-            // Includes
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitDepthNormalsPass.hlsl"
-            ENDHLSL
-        }
+    // -------------------------------------
+    // Includes
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl"
+    #include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitDepthNormalsPass.hlsl"
+    ENDHLSL
+}
 ```
 
 ![Desktop View](company/render_z_3.png){: width="875" height="482" .w-75 .normal}
