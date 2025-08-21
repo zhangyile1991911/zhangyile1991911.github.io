@@ -12,6 +12,9 @@ image:
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
+Unity6 6000.0.32f1
+URP 17.0.3
+
 ![Desktop View](company_without/grounddownmesh.jpg){: width="875" height="482" .w-75 .normal}
 ![Desktop View](company_without/grounddowncolor.jpg){: width="875" height="482" .w-75 .normal}
 
