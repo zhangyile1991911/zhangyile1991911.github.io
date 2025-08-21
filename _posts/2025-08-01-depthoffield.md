@@ -1,5 +1,5 @@
 ---
-title: Unity6 霧めいた表現
+title: Unity6 近景と遠景のぼかしの表現
 author: zhangyile
 date: 2025-08-20 09:42:00 +0800
 categories: [Work Log]
@@ -7,7 +7,7 @@ tags: [Work,Development]
 comments: false
 img_path: /assets/img/
 image:
-  path: company_without/isogashii_man.png
+  path: company_without/dof6.jpg
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
@@ -183,7 +183,9 @@ void DoGaussianDepthOfField(CommandBuffer cmd, RTHandle source, RTHandle destina
 
 ## コードダウンロード
 [**RendererFeature.cs**][RenderFeature]
+
 [**VolumeComponent.cs**][VolumeComponent]
+
 [**CustomDepthOfField.shader**][Shader]
 
 ## 纏まり
