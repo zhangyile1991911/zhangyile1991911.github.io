@@ -243,6 +243,7 @@ void ApplyDecalToBaseColor(float4 positionCS, inout half3 baseColor);
   - DBuffer.hlslを導入します
   - 法線を換算(Unlitなのでしなくても大丈夫です)
   - fragment段階でApplyDecal関数を呼びます
+  
 ```
 Pass
 {
