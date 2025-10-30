@@ -99,7 +99,7 @@ Shader "Custom/MyCustomShader"
 - 青い立方体にビルドインシェーダーがアタッチしています
 - 赤い立方体に上記のCustom Shaderがアタッチしています
 
-![Desktop View](company_without/decal_test1.jpg){: width="642" height="425" .w-75 .normal}
+![Desktop View](company_without/decal_test2.jpg){: width="642" height="425" .w-75 .normal}
 
 > 結果から見ると赤い立方体にテクスチャがくっついていません。なぜ？
 
@@ -178,8 +178,8 @@ Pass
 ```
 
 4. 法線を書き込むコードをコーピしてCustom Shaderに貼り付けます
-  - 法線情報が書き込まれています
-  
+  - 法線情報が書き込まれるようになりました
+
 ![Desktop View](company_without/decal_test5.jpg){: width="642" height="425" .w-75 .normal}
 
 5. なぜ　テクスチャーがくっ付いていません
@@ -220,7 +220,7 @@ void LitPassFragment(
 }
 ```
 
-> DBuffer.hlsl
+> DBuffer.hlslで四つApplyDecal関数が提供しています
 
 ```
 void ApplyDecalToBaseColor(float4 positionCS, inout half3 baseColor)
