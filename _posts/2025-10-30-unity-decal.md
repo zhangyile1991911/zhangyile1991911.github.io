@@ -33,6 +33,7 @@ ChatGPTにより
 ## Unlit Custom Shaderで試し
 
 > 一番簡単なShade Codeを生成しました
+
 ```
 Shader "Custom/MyCustomShader"
 {
@@ -95,24 +96,28 @@ Shader "Custom/MyCustomShader"
 
 ```
 
-青い立方体にビルドインシェーダーがアタッチしています
-赤い立方体に上記のCustom Shaderがアタッチしています
+- 青い立方体にビルドインシェーダーがアタッチしています
+- 赤い立方体に上記のCustom Shaderがアタッチしています
 
 ![Desktop View](company_without/decal_test1.jpg){: width="642" height="425" .w-75 .normal}
 
-結果から見ると赤い立方体にテクスチャがくっついていません。なぜ？
+> 結果から見ると赤い立方体にテクスチャがくっついていません。なぜ？
 
 
 ## Custom Shaderにデカールを有効にする
 
 1. 分析 Decalはいつに発生します
   - フレームデバッグを使って描画順番から分析します
+
 ![Desktop View](company_without/decal_test3.jpg){: width="642" height="425" .w-75 .normal}
+
 > 上記のスクリーンショットにより、不透明なオブジェクトが描画される前に発生します
 
 2. コードで何を漏らしました
   - フレームデバッグにより,UnityのLit.shaderがもう一つことをやっています
+
 ![Desktop View](company_without/decal_test4.jpg){: width="642" height="425" .w-75 .normal}
+
 > この段階でシーン内のオブジェクトの法線を出力しました
 
 3. Litコードを読みます
@@ -174,6 +179,7 @@ Pass
 
 4. 法線を書き込むコードをコーピしてCustom Shaderに貼り付けます
   - 法線情報が書き込まれています
+  
 ![Desktop View](company_without/decal_test5.jpg){: width="642" height="425" .w-75 .normal}
 
 5. なぜ　テクスチャーがくっ付いていません
@@ -182,6 +188,7 @@ Pass
   - ForwardLitのLitPassFragmentを掘り下げます
   - LitFowardPass.hlslにApplyDecalToSurfaceDataを書いてあります
   - DBuffer.hlsl内で四つDecal関数があります
+
 ![Desktop View](company_without/decal_test6.jpg){: width="642" height="425" .w-75 .normal}
 
 > Lit.shaderのPass"ForwardLit"
