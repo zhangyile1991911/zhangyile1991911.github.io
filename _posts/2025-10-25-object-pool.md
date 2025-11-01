@@ -322,7 +322,7 @@ Layer.addchild(node);
 function dosomething(node)
 {
     if (xxx)
-    {//判断により、取り出したばかりノードをプールに戻すこともあります
+    {//判断により、借りたばかりノードをプールに戻すこともあります
         pool.push(node);
     }
     xxx
