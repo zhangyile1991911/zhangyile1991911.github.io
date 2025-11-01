@@ -70,13 +70,9 @@ addChild (child, zIndex, name) {
 9. ２つ場所でログを出力し、一つプールに入れる前に、も一つ親ノードに追加する前に
 10. 問題はすぐ明きました。
 11. 原因を説明します
-> 下記のコードで簡単説明
+> 下記は最小再現コードで簡単説明します
 
 ```
-const node = pool.get();
-dosomething(node);
-//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
-Layer.addchild(node);
 
 function dosomething(node)
 {
@@ -87,4 +83,11 @@ function dosomething(node)
     xxx
     xxx
 }
+
+const node = pool.get();
+dosomething(node);
+//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
+Layer.addchild(node);
+
+
 ```

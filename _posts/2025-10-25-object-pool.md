@@ -311,13 +311,9 @@ public class ObjectPool
 > 半年前に解決したバグをおもいだしました。[返却したオブジェクトを使い続ける](https://zhangyile1991911.github.io/posts/company-fix-bug/)
 
 
-下記の仮コードでバグを顧みましょう
+下記の最小再現コードでバグを顧みましょう
 
 ```
-const node = pool.get();
-dosomething(node);
-//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
-Layer.addchild(node);
 
 function dosomething(node)
 {
@@ -328,6 +324,13 @@ function dosomething(node)
     xxx
     xxx
 }
+
+const node = pool.get();
+dosomething(node);
+//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
+Layer.addchild(node);
+
+
 ```
 
 上記の場合で一旦オブジェクトが返却されたら　ObjectHandlerが持つオブジェクトを無効化するべきです。
