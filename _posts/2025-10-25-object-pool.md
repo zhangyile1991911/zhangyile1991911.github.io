@@ -308,10 +308,8 @@ public class ObjectPool
 ```
 
 ## 実に発生したバグ
-    半年前に解決したバグをおもいだしました。
-    
-> 返却したオブジェクトを使い続ける。<https://zhangyile1991911.github.io/posts/company-fix-bug/>
-    
+> 半年前に解決したバグをおもいだしました。[返却したオブジェクトを使い続ける](https://zhangyile1991911.github.io/posts/company-fix-bug/)
+
 
 下記の仮コードでバグを顧みましょう
 
@@ -335,6 +333,7 @@ function dosomething(node)
 上記の場合で一旦オブジェクトが返却されたら　ObjectHandlerが持つオブジェクトを無効化するべきです。
 
 ```
+
 public class ObjectHandler : IDisposable
 {
     public void Release()
@@ -345,9 +344,10 @@ public class ObjectHandler : IDisposable
         _hasReleased = true;
     }
 }
+
 ```
 
-    終わる時にエラーが出るより、実行中に一刻早くエラーが出たほうが良いと思います。
+終わる時にエラーが出るより、実行中に一刻早くエラーを出したほうが良いと思います。
 
 ## 纏めリ
 　以上のコードは簡単なところから、開発中でよく遭ったことを含めて対策を考えて少しずつ改善してきました。もちろん完璧ではありません。足りないものや考え不足ところがたくさんあるので、以下リストで次に進む方向を示します
