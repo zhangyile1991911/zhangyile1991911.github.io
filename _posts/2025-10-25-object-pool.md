@@ -307,7 +307,7 @@ public class ObjectPool
 }
 ```
 
-## 実に発生したバグ
+## 実に業務で発生したバグ
 > 半年前に解決したバグをおもいだしました。[返却したオブジェクトを使い続ける](https://zhangyile1991911.github.io/posts/company-fix-bug/)
 
 
