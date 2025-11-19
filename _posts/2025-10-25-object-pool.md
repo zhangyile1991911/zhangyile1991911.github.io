@@ -307,6 +307,51 @@ public class ObjectPool
 }
 ```
 
+## 実に業務で発生したバグ
+> 半年前に解決したバグをおもいだしました。[返却したオブジェクトを使い続ける](https://zhangyile1991911.github.io/posts/company-fix-bug/)
+
+
+下記の最小再現コードでバグを顧みましょう
+
+```
+
+function dosomething(node)
+{
+    if (xxx)
+    {//判断により、借りたばかりノードをプールに戻すこともあります
+        pool.push(node);
+    }
+    xxx
+    xxx
+}
+
+const node = pool.get();
+dosomething(node);
+//もし上記のの関数内でノードを返したとしても、下のコードを実行し続けるから　バグが起きます
+Layer.addchild(node);
+
+
+```
+
+上記の場合で一旦オブジェクトが返却されたら　ObjectHandlerが持つオブジェクトを無効化するべきです。
+
+```
+
+public class ObjectHandler : IDisposable
+{
+    public void Release()
+    {
+        ParentPool.ReleaseObject(Instance);
+        // Instanceにヌールを代入する
+        Instance = null;
+        _hasReleased = true;
+    }
+}
+
+```
+
+終わる時にエラーが出るより、実行中に一刻早くエラーを出されたほうが良いと思います。
+
 ## オブジェクトが廃棄される時に自動で返却できません
 
 ```
@@ -380,8 +425,6 @@ public class GameObjectPool
 
 ```
 
-
-
 ## 貸出中オブジェクトリストを可視化、統計ツール
 
 ![Desktop View](company_without/object_pool_tool.jpg){: width="642" height="425" .w-75 .normal}
@@ -390,9 +433,12 @@ public class GameObjectPool
 
 ## ツールリンク
 
+[ObjectPoolShowcase](https://github.com/zhangyile1991911/ObjectPoolShowcase)
 
 ## 纏めリ
 　以上のコードは簡単なところから、開発中でよく遭ったことを含めて対策を考えて少しずつ改善してきました。もちろん完璧ではありません。足りないものや考え不足ところがたくさんあるので、以下リストで次に進む方向を示します
-1. プールが自動的に拡張したり減削したりする     (完成)
-2. 貸出中オブジェクトリストを可視化、統計ツール  (完成)
-3. ツールでテスト結果により、初期化時に適切なオブジェクト数を設定できるように
+
+### Todo list
+- [ ] プールが自動的に拡張したり減削したりする
+- [ ] 貸出中オブジェクトリストを可視化、統計ツールを作る
+- [ ] ツールでテスト結果により、初期化時に適切なオブジェクト数を設定できるように
