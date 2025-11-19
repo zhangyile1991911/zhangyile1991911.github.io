@@ -307,8 +307,92 @@ public class ObjectPool
 }
 ```
 
+## オブジェクトが廃棄される時に自動で返却できません
+
+```
+internal class ObjectWatchDog : MonoBehaviour
+{
+    public ObjectPool ParentPool;
+    private void OnDestroy()
+    {//この関数が呼ばれた時は手遅れだった、回収できないようになっった
+        ParentPool?.ReportIllegalDestroy(this.gameObject);
+    }
+}
+```
+
+## プールが自動的に拡張したり減削したりする
+
+```
+public class GameObjectPool
+{
+    public ObjectHandler Get()
+    {
+        //貸し出し際に 貸出回数を記録する
+        //一定時間内で最大貸出数を記録する
+        _currentBorrowed++;
+        _maxBorrowed = Mathf.Max(_currentBorrowed, _maxBorrowed);
+    }
+    public void Release(ObjectHandler handler)
+    {
+        _currentBorrowed--;
+    }
+
+    public void LateUpdate()
+    {
+        //設定時間が経ったら
+        _smoothedPeak = alpha * _maxBorrowed + (1.0f - alpha) * _smoothedPeak;
+        int targetPoolNum = Mathf.CeilToInt(_smoothedPeak * 1.2f);
+        ShrinkOrExpandTo(targetPoolNum);
+    }
+
+    private void ShrinkOrExpandTo(int targetPoolNum)
+    {
+        int current = _pool.Count;
+        
+        if (current == targetPoolNum)
+            return;
+        
+        float changePercent = Mathf.Abs(targetPoolNum - current) / (float)current;
+        //頻繁に操作を避けるため
+        if (changePercent < 0.25f)
+            return;
+
+        if (targetPoolNum < current)
+        {
+            // shrink
+            int toRemove = current - targetPoolNum;
+            for (int i = 0; i < toRemove; i++)
+            {
+                var obj = _pool.Dequeue();
+                Destroy(obj);
+            }
+            Debug.Log($"{name} shrink out of {toRemove}.");
+        }
+        else
+        {
+            // expand
+            int toAdd = targetPoolNum - current;
+            MakeMore(toAdd);
+            Debug.Log($"{name} expand {toAdd}.");
+        }
+    }
+}
+
+```
+
+
+
+## 貸出中オブジェクトリストを可視化、統計ツール
+
+![Desktop View](company_without/object_pool_tool.jpg){: width="642" height="425" .w-75 .normal}
+
+- 逸脱とはオブジェクトがプールから取り出されてから　親ノードを設定してないという状況です
+
+## ツールリンク
+
+
 ## 纏めリ
 　以上のコードは簡単なところから、開発中でよく遭ったことを含めて対策を考えて少しずつ改善してきました。もちろん完璧ではありません。足りないものや考え不足ところがたくさんあるので、以下リストで次に進む方向を示します
-1. プールが自動的に拡張したり減削したりする
-2. 貸出中オブジェクトリストを可視化、統計ツール
+1. プールが自動的に拡張したり減削したりする     (完成)
+2. 貸出中オブジェクトリストを可視化、統計ツール  (完成)
 3. ツールでテスト結果により、初期化時に適切なオブジェクト数を設定できるように
