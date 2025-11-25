@@ -22,12 +22,16 @@ image:
 ```
 public class ObjectPool
 {
-    private int _capacity = 50;
     private Queue<GameObject> _pool;
     ObjectPool()
     {
         _pool = new Queue<GameObject>(_capacity);
-        for (int i = 0; i < _capacity; i++)
+        MakeMore(50);       
+    }
+
+    private void MakeMore(int capacity)
+    {
+        for (int i = 0; i < capacity; i++)
         {
             var one = new GameObject();
             one.name = $"xxx_ObjectPool_{i}";
@@ -39,7 +43,7 @@ public class ObjectPool
     {
         if (_pool.Count <= 0)
         {
-            return null;
+            MakeMore(10);
         }
 
         return _pool.Dequeue();
@@ -67,15 +71,19 @@ using UnityEngine;
 
 public class ObjectPool
 {
-    private int _capacity = 50;
     private Queue<GameObject> _pool;
     //貸したオブジェクトを記録する
-    private Dictionary<string, GameObject> _history;
+    private Dictionary<int, GameObject> _history;
     ObjectPool()
     {
-        _pool = new Queue<GameObject>(_capacity);
-        _history = new Dictionary<string, GameObject>(_capacity);
-        for (int i = 0; i < _capacity; i++)
+        _pool = new Queue<GameObject>();
+        _history = new Dictionary<int, GameObject>();
+        MakeMore(50);
+    }
+
+    private void MakeMore(int capacity)
+    {
+        for (int i = 0; i < capacity; i++)
         {
             var one = new GameObject();
             one.name = $"xxx_ObjectPool_{i}";
@@ -87,11 +95,11 @@ public class ObjectPool
     {
         if (_pool.Count <= 0)
         {
-            return null;
+           MakeMore(10);
         }
 
         GameObject gameObject = _pool.Dequeue();
-        _history[gameObject.name] = gameObject;
+        _history[gameObject.GetInstanceID()] = gameObject;
         return gameObject;
     }
 
@@ -99,7 +107,7 @@ public class ObjectPool
     {
         if (gameObject)
         {
-            _history.Remove(gameObject.name);
+            _history.Remove(gameObject.GetInstanceID());
             _pool.Enqueue(gameObject);      
         }
     }
@@ -129,24 +137,36 @@ using UnityEngine;
 internal class ObjectWatchDog : MonoBehaviour
 {
     public ObjectPool ParentPool;
-    private void OnDestroy()
+
+    int instanceID;
+    void Start()
+    {
+        instanceID = GetInstanceID();
+    }
+
+    void OnDestroy()
     {
         //プールに報告します
-        ParentPool?.ReportIllegalDestroy(this.gameObject);
+        ParentPool?.ReportIllegalDestroy(instanceID);
     }
 }
 
 public class ObjectPool
 {
-    private int _capacity = 50;
     private Queue<GameObject> _pool;
     //貸したオブジェクトを記録する
-    private Dictionary<string, GameObject> _history;
+    private Dictionary<int, GameObject> _history;
     ObjectPool()
     {
-        _pool = new Queue<GameObject>(_capacity);
-        _history = new Dictionary<string, GameObject>(_capacity);
-        for (int i = 0; i < _capacity; i++)
+        _pool = new Queue<GameObject>();
+        _history = new Dictionary<int, GameObject>();
+        
+        MakeMore(50);
+    }
+
+    private void MakeMore(int capacity)
+    {
+        for (int i = 0; i < capacity; i++)
         {
             var one = new GameObject();
             one.name = $"xxx_ObjectPool_{i}";
@@ -161,11 +181,11 @@ public class ObjectPool
     {
         if (_pool.Count <= 0)
         {
-            return null;
+            MakeMore(10);
         }
 
         GameObject gameObject = _pool.Dequeue();
-        _history[gameObject.name] = gameObject;
+        _history[gameObject.GetInstanceID()] = gameObject;
         return gameObject;
     }
 
@@ -173,7 +193,7 @@ public class ObjectPool
     {
         if (gameObject)
         {
-            _history.Remove(gameObject.name);
+            _history.Remove(gameObject.GetInstanceID());
             _pool.Enqueue(gameObject);      
         }
     }
@@ -188,13 +208,10 @@ public class ObjectPool
     }
     
     //意外と廃棄される時に
-    public void ReportIllegalDestroy(GameObject gameObject)
+    public void ReportIllegalDestroy(string name,int instanceId)
     {
-        if (gameObject)
-        {
-            _history.Remove(gameObject.name);
-            Debug.LogWarning($"object name {gameObject.name} has be illegally destroy!");
-        }
+        _history.Remove(name);
+        Debug.LogWarning($"object name {name} has be illegally destroy!");
     }
 }
 
@@ -207,22 +224,37 @@ public class ObjectPool
 
 ```
 //Disposableを利用し　自動的に借りたオブジェクトをプールに返却する
+//議論点　なぜここにclassを利用する　structを使わない
+//class ObjectHandler h1 = pool.Get();
+//class ObjectHandler h2 = h1;
+//h2とh1は同じものです
+//もしstructを使ったら
+//struct ObjectHandler h1 = pool.Get();
+//struct ObjectHandler h2 = h1;
+//h2とh1は異なる
+//h1.release();後
+//h2.isRelease() == false
+
 public class ObjectHandler : IDisposable
 {
     public ObjectPool ParentPool { get; private set; }
     public GameObject Instance { get; private set; }
 
+    public int InstanceId { get; private set;}
+    public string name { get; private set;}
     private bool _hasReleased = false;
     public ObjectHandler(ObjectPool pool,GameObject instance)
     {
         ParentPool = pool;
         Instance = instance;
+        InstanceId = instance.GetInstanceID();
+        name = instance.name;
     }
     
     //手動で返却する
     public void Release()
     {
-        ParentPool.ReleaseObject(Instance);
+        ParentPool.ReleaseObject(this);
         _hasReleased = true;
     }
     
@@ -239,23 +271,32 @@ public class ObjectHandler : IDisposable
 //GameObjectが廃棄されることを見張る
 internal class ObjectWatchDog : MonoBehaviour
 {
-    public ObjectPool ParentPool;
+    public ObjectHandler handler;
+    int instanceId;
+    private void Start()
+    {
+        instanceId = GetInstanceID();
+    }
     private void OnDestroy()
     {
-        ParentPool?.ReportIllegalDestroy(this.gameObject);
+        ParentPool?.ReportIllegalDestroy(handler);
     }
 }
 
 public class ObjectPool
 {
-    private int _capacity = 50;
     private Queue<GameObject> _pool;
-    private Dictionary<string, GameObject> _history;//貸したオブジェクトを記録する
+    private Dictionary<int, GameObject> _history;//貸したオブジェクトを記録する
     ObjectPool()
     {
-        _pool = new Queue<GameObject>(_capacity);
-        _history = new Dictionary<string, GameObject>(_capacity);
-        for (int i = 0; i < _capacity; i++)
+        _pool = new Queue<GameObject>();
+        _history = new Dictionary<string, GameObject>();
+        MakeMore(50);
+    }
+
+    private void MakeMore(int capacity)
+    {
+        for (int i = 0; i < capacity; i++)
         {
             var one = new GameObject();
             one.name = $"xxx_ObjectPool_{i}";
@@ -274,17 +315,17 @@ public class ObjectPool
         }
 
         GameObject gameObject = _pool.Dequeue();
-        _history[gameObject.name] = gameObject;
+        _history[gameObject.GetInstanceID()] = gameObject;
         ObjectHandler handler = new ObjectHandler(this, gameObject);
         return handler;
     }
     
-    public void ReleaseObject(GameObject gameObject)
+    public void ReleaseObject(ObjectHandler handler)
     {
-        if (gameObject)
+        if (handler)
         {
-            _history.Remove(gameObject.name);
-            _pool.Enqueue(gameObject);      
+            _history.Remove(handler.Instance.GetInstanceID());
+            _pool.Enqueue(handler.Instance);      
         }
     }
 
@@ -296,13 +337,10 @@ public class ObjectPool
         }
     }
     
-    public void ReportIllegalDestroy(GameObject gameObject)
+    public void ReportIllegalDestroy(ObjectHandler handler)
     {
-        if (gameObject)
-        {
-            _history.Remove(gameObject.name);
-            Debug.LogWarning($"object name {gameObject.name} has be illegally destroy!");
-        }
+        _history.Remove(handler.InstanceID);
+        Debug.LogWarning($"object name {handler.name} has be illegally destroy!");
     }
 }
 ```
@@ -341,7 +379,8 @@ public class ObjectHandler : IDisposable
 {
     public void Release()
     {
-        ParentPool.ReleaseObject(Instance);
+        if(_hasReleased)return;
+        ParentPool.ReleaseObject(this);
         // Instanceにヌールを代入する
         Instance = null;
         _hasReleased = true;
@@ -432,7 +471,7 @@ public class GameObjectPool
 - 逸脱とはオブジェクトがプールから取り出されてから　親ノードを設定してないという状況です
 
 ## ツールリンク
-
+具体的実現は下記リンクに記載されています。
 [ObjectPoolShowcase](https://github.com/zhangyile1991911/ObjectPoolShowcase)
 
 ## 纏めリ
