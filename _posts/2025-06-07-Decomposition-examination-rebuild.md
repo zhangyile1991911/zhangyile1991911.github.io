@@ -80,6 +80,6 @@ Varyings vert (Attributes input)
 }
 ```
 
-![Desktop View](company_without/ground_roll_mesh.png){: width="180" height="400" .w-75 .normal}
+![Desktop View](company_without/ground_roll_mesh.jpg){: width="180" height="400" .w-75 .normal}
 
 ## マトメ
