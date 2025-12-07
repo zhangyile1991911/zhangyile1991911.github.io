@@ -4,7 +4,7 @@ author: zhangyile
 date: 2023-12-09 14:35:00 +0800
 categories: [就職,自己紹介]
 tags: [自己紹介]
-img_path: '/_posts/picture'
+img_path: /assets/img/
 comments: false
 pin: true
 ---
@@ -52,11 +52,11 @@ pin: true
 ### 今までに自分が成し遂げた事柄
 今までに成し遂げた事柄ですが、以前の会社で私も携わった2019年に開発したゲームのユーザー数「すう」は250万を超えました。一人でゲームサーバーの開発をしていました。
 
-### 学習結果
+## 学習結果
 
-土日を惜しみながらUDEMYで色々なレッスンを購入して学習しています
-取得した認証
-{: .prompt-tip }
+土日も時間を惜しまず、Udemyでさまざまなレッスンを受講しながら学習を続けています。
+
+### 取得した認証
 
 ![Desktop View](certification/climbingsystem.jpg){: width="642" height="425" .w-75 .normal}
 
