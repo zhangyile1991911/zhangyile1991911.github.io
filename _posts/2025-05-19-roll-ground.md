@@ -38,7 +38,9 @@ float3 ground_down(float3 positionOS,
 ```
 
 > 基础知识 模型空间->世界空间->裁剪空间(相机)->视空间->NDC->屏幕空间
+
 > 基本な知識　Model Space/Object Space -> WorldSpace -> ClipSpace -> ViewSpace -> NDC -> ScreenSpace
+
 ```
 Varyings vert (Attributes input)
 {
