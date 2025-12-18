@@ -20,7 +20,8 @@ LRUとは　The Least Recently Used Cache
 1. よく使われる画面を生成し直すことを避ける
 2. インメモリ使用量を一定範囲内に制御できる
 3. 長く使われない画面を自動的に廃棄する
-4. 自動的にUI要素とスクリプトをバンディングする
+4. 自動的でスクリプトがUIに紐付く
+5. 管理ツールで目安に内部変数や状態が見える
 
 ### 例で説明する
 - ユーザー動作　　　
@@ -111,3 +112,14 @@ public partial class LoginWindow : UIWindow
     }
 }
 ```
+
+### デバッグツール
+1. 順位--LRUにより、現時点Windowは内部で順位であります。
+2. 名前
+3. component数
+4. 所属階層--現時点windowはどの階層に所属しています
+5. 活性化--現時点windowが表示されていますか
+6. 使い回数
+7. インメモリに永住するか
+
+![Desktop View](ui_framework/tool.png){: width="579" height="174" .w-75 .normal}
