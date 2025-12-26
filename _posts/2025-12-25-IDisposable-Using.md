@@ -21,28 +21,30 @@ image:
 class XXXWindow
 {
 	Button button;
-    //遷移中のフラグ
+	//遷移中のフラグ
 	bool isIdle = true;
 
 	void OnShow()
 	{
-	  //ボタンのイベントを監視する
-     button.
-     OnClickAsObservable.
-	    TakeWhile((x) => isIdle).//遷移中だったら、何もしない
-	    Subscribe((x) => {TransitionToOther()}).
-	    RegisterTo(token);
+		//ボタンのイベントを監視する
+		button.
+			OnClickAsObservable.
+			TakeWhile((x) => isIdle).//遷移中だったら、何もしない
+			Subscribe((x) => {TransitionToOther()}).
+			RegisterTo(token);
 	}
-	
+
 	async UniTask TransitionToOther()
 	{
-		 //入口と出口で値を正しく確保しなければなりません
-		 //問題点
-		 //1. 遷移中にバグもしくは不具合が出たら、isIdleはずっとtrueとなっている
-		 isIdle = false;
-		 await FadeOut();
-		 await nextWindow.FadeIn();
-		 isIdle = true;
+		//入口と出口で値を正しく確保しなければなりません
+		//問題点
+		//1. 遷移中にバグもしくは不具合が出たら、isIdleはずっとtrueとなっている
+		isIdle = false;
+
+		await FadeOut();
+		await nextWindow.FadeIn();
+
+		isIdle = true;
 	}
 }
 ```
@@ -68,24 +70,24 @@ class XXXWindow
 	        window.isIdle = true;
 	    }
 	}
-	
+
 	void OnShow()
 	{
-     button.
-     OnClickAsObservable.
-	    TakeWhile((x)=>isIdle).
-	    Subscribe().
-	    RegisterTo(token);
+		button.
+			OnClickAsObservable.
+			TakeWhile((x)=>isIdle).
+			Subscribe().
+			RegisterTo(token);
 	}
-	
+
 	async UniTask TransitionToOther()
 	{
 		//自動解除
-        using(new TransitionLock(this))
-        {
-            FadeOut();
-            nextWindow.FadeIn();
-        }
+		using(new TransitionLock(this))
+		{
+			FadeOut();
+			nextWindow.FadeIn();
+		}
 	}	
 }
 ```
@@ -95,45 +97,46 @@ class XXXWindow
 ```
 async UniTask TransitionToOther()
 {
-	 isIdle = false;
-     //もっとIf文やswitchが増えていくなら
-	 if(current == Other)
-	 {
-		 isIdle = true;//忘れずに
-		 return;
-	 }
-     else if(xxxx)
-     {
-        isIdle = true;//忘れずに
+	isIdle = false;
+	//もっとIf文やswitchが増えていくなら
+	if(current == Other)
+	{
+		isIdle = true;//忘れずに
 		return;
-     }
-     else if(yyyy)
-     {
-        isIdle = true;//忘れずに
+	}
+	else if(xxxx)
+	{
+		isIdle = true;//忘れずに
 		return;
-     }
-	 await FadeOut();
-	 await nextWindow.FadeIn();
+	}
+	else if(yyyy)
+	{
+		isIdle = true;//忘れずに
+		return;
+	}
+	await FadeOut();
+	await nextWindow.FadeIn();
 
-	 isIdle = true;
+	isIdle = true;
 }
 
 async UniTask TransitionToOther()
 {
 	//自動解除
-	 using(new TransitionLock(this))
-	 {
-		 if(current == Other)return;//直接に戻す
-         if(xxxx)return;
-         if(yyyy)return;
+	using(new TransitionLock(this))
+	{
+		if(current == Other)return;
+		//いくつ判断が増えても
+		if(xxxx)return;
+		if(yyyy)return;
 
-		 FadeOut();
-		 nextWindow.FadeIn();
-	 }
+		FadeOut();
+		nextWindow.FadeIn();
+	}
 }
 ```
 
 ### パタンBのメリット
 
-    既存処理に複数条件判断を入れても遷移ロジックが正しく実行するようになります。
+1. 既存の処理に複数の条件判断を増やしても遷移ロジックが正しく実行されるようになります。
 
