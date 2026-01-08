@@ -13,8 +13,13 @@ image:
 ---
 
 ## 概要
-UIページの管理はLRUというアルゴリズムで管理します。
-LRUとは　The Least Recently Used Cache
+この基盤について礎はUIComponentとUIWindowとUIManager三つクラスです。
+UIComponentとは最小単位のUI要素であります。
+UIWindowとは複数のUIComponentを搭載できます。
+同じ名前UIWindowとUIComponentは一つのみです。
+UIManagerはLRUというアルゴリズムを使ってUIWindowの管理を行います。
+LRUとはThe Least Recently Used Cache。
+
 
 ### メリット
 1. よく使われる画面を生成し直すことを避ける

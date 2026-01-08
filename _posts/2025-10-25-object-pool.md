@@ -12,6 +12,10 @@ image:
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
+## 概要
+  自動的で貸し出したオブジェクトを返却したり追跡したりプールのアイテム数を確保したりする基礎機能です。
+  
+
 > 今回に検討するObjectPool内のアイテムを利用する際に初期、リセット、廃棄など細かいことを無視してObjectPool自体に集中します
 
 ## 全ての物事は一番簡単なところからです
