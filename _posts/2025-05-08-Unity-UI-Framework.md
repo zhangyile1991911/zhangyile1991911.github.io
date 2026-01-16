@@ -177,7 +177,8 @@ class BComponent : UIComponent
 ### 基底クラスが選べるようになる
 
     - 基底クラスを作る
-```
+
+```csharp
 class UIPDComponent : UIComponent
 {
 	protected PlayableDirector rootPD;
@@ -198,11 +199,12 @@ class UIPDComponent : UIComponent
 ```
 
 ### ツールで選択肢がリストで表示する
+
 ![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
 
 ### 生成する前に必須要件がチェックできる
 
-```
+```csharp
 class UIPDComponent : UIComponent
 {
 	protected PlayableDirector rootPD;
