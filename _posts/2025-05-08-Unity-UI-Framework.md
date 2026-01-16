@@ -1,5 +1,5 @@
 ---
-title: UnityでのUI管理システム設計
+title: UnityでのUI管理システム設計[改善中]
 author: zhangyile
 date: 2025-5-08 09:42:00 +0800
 categories: [Work Log]
@@ -21,14 +21,14 @@ UIManagerはLRUというアルゴリズムを使ってUIWindowの管理を行い
 LRUとはThe Least Recently Used Cache。
 
 
-### メリット
+## メリット
 1. よく使われる画面を生成し直すことを避ける
 2. インメモリ使用量を一定範囲内に制御できる
 3. 長く使われない画面を自動的に廃棄する
 4. 自動的でスクリプトがUIに紐付く
 5. 管理ツールで目安に内部変数や状態が見える
 
-### 例で説明する
+## 例で説明する
 - ユーザー動作　　　
     - ゲームが起動した時、ログイン画面が開いた
 - ロジック側　　　　
@@ -67,7 +67,7 @@ LRUとはThe Least Recently Used Cache。
 
 > 特別で常駐する画面[MainWindow]が他の処理で廃棄されないようにする
 
-### 自動的にバンディング,UIページのコードを生成する
+## 自動的にバンディング,UIクラスのコードを生成する
 1. 画面を組み立てバンディングしたいオブジェクトを一定名前をつける
 ![Desktop View](ui_framework/s7.jpg){: width="713" height="405" .w-75 .normal}
 2. 拡張したコマンドを利用する
@@ -75,7 +75,7 @@ LRUとはThe Least Recently Used Cache。
 3. 生成するノードを枠に引き入れる
 ![Desktop View](ui_framework/s9.jpg){: width="714" height="405" .w-75 .normal}
 
-### 生成Windowボタンを押す
+## 生成Windowボタンを押す
 1. プレハブが自動的に生成された
 ![Desktop View](ui_framework/s10.jpg){: width="588" height="200" .w-75 .normal}
 
@@ -118,8 +118,8 @@ public partial class LoginWindow : UIWindow
 }
 ```
 
-### デバッグツール
-1. 順位--LRUにより、現時点Windowは内部で順位であります。
+## デバッグツール
+1. 順位--LRUにより、現時点Windowの順位です。
 2. 名前
 3. component数
 4. 所属階層--現時点windowはどの階層に所属しています
@@ -128,3 +128,104 @@ public partial class LoginWindow : UIWindow
 7. インメモリに永住するか
 
 ![Desktop View](ui_framework/tool.png){: width="579" height="174" .w-75 .normal}
+
+
+## 基底クラスの拡張
+### 概要
+　　- 下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。
+
+```csharp
+class AComponent : UIComponent
+{
+	protected PlayableDirector rootPD;
+	protected Animator rootAnimator;
+	public override void OnCreate()
+  {
+      rootPD = uiTran.GetComponent<PlayableDirector>();
+      rootAnimator = uiTran.GetComponent<Animator>();
+  }
+  public override void OnShow(UIOpenParam openParam)
+  {//オブジェクトが表示時に何のアニメションを再生する
+	  rootPD.Play();
+  }
+  
+  public override void OnHide(UIOpenParam openParam)
+  {//オブジェクトが非表示時に何のアニメションを再生する
+	  rootPD.Play();
+  }
+}
+
+class BComponent : UIComponent
+{
+	protected PlayableDirector rootPD;
+	protected Animator rootAnimator;
+	public override void OnCreate()
+  {
+      rootPD = uiTran.GetComponent<PlayableDirector>();
+      rootAnimator = uiTran.GetComponent<Animator>();
+  }
+  public override void OnShow(UIOpenParam openParam)
+  {
+  }
+  
+  public override void OnHide(UIOpenParam openParam)
+  {
+  }
+}
+```
+
+### 基底クラスが選べるようになる
+
+    - 基底クラスを作る
+```
+class UIPDComponent : UIComponent
+{
+	protected PlayableDirector rootPD;
+	protected Animator rootAnimator;
+	public override void OnCreate()
+  {
+      rootPD = uiTran.GetComponent<PlayableDirector>();
+      rootAnimator = uiTran.GetComponent<Animator>();
+  }
+  public override void OnShow(UIOpenParam openParam)
+  {
+  }
+  
+  public override void OnHide(UIOpenParam openParam)
+  {
+  }
+}
+```
+
+### ツールで選択肢がリストで表示する
+![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
+
+### 生成する前に必須要件がチェックできる
+
+```
+class UIPDComponent : UIComponent
+{
+	protected PlayableDirector rootPD;
+	protected Animator rootAnimator;
+	//子クラスが生成される時に必須要件をチェックする
+	#if UNITY_EDITOR
+    [UIComponentChecker]
+    static bool CheckComponentExist(GameObject go)
+    {
+        var pd = go.GetComponent<PlayableDirector>();
+        if(!pd)
+        {
+            UnityEngine.Debug.LogError($"UIPDComponent require PlayableDirector Component:{go.name}");
+            return false;
+        }
+        var ar = go.GetComponent<Animator>();
+        if(!ar)
+        {
+            UnityEngine.Debug.LogError($"UIPDComponent require Animator Component:{go.name}");
+            return false;
+        }
+        return true;
+    }
+    #endif
+}
+```
