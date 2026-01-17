@@ -1,7 +1,7 @@
 ---
 title: UnityでのUI管理システム設計[改善中]
 author: zhangyile
-date: 2025-5-08 09:42:00 +0800
+date: 2026-1-17 09:42:00 +0800
 categories: [Work Log]
 tags: [Work,Development]
 comments: false
@@ -13,12 +13,13 @@ image:
 ---
 
 ## 概要
-この基盤について礎はUIComponentとUIWindowとUIManager三つクラスです。
-UIComponentとは最小単位のUI要素であります。
-UIWindowとは複数のUIComponentを搭載できます。
-同じ名前UIWindowとUIComponentは一つのみです。
-UIManagerはLRUというアルゴリズムを使ってUIWindowの管理を行います。
-LRUとはThe Least Recently Used Cache。
+
+- この基盤について礎はUIComponent,UIWindow,UIManager三つクラスです。
+- UIComponentは最小単位のUI要素であります。
+- UIWindowとは複数のUIComponentを搭載できます。
+- 同じ名前UIWindowとUIComponentは一つのみです。
+- UIManagerはLRUというアルゴリズムでUIWindowの管理を行います。
+PS：LRUとはThe Least Recently Used Cache。
 
 
 ## メリット
@@ -132,7 +133,8 @@ public partial class LoginWindow : UIWindow
 
 ## 基底クラスの拡張
 ### 概要
-　　- 下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。
+
+> 下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。{: .prompt-info }
 
 ```csharp
 class AComponent : UIComponent
@@ -176,7 +178,7 @@ class BComponent : UIComponent
 
 ### 基底クラスが選べるようになる
 
-    - 基底クラスを作る
+> 基底クラスを作る{: .prompt-info }
 
 ```csharp
 class UIPDComponent : UIComponent
@@ -199,6 +201,8 @@ class UIPDComponent : UIComponent
 ```
 
 ### ツールで選択肢がリストで表示する
+
+> 生成する前に基底クラスを選択する{: .prompt-info }
 
 ![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
 
