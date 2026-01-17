@@ -132,9 +132,9 @@ public partial class LoginWindow : UIWindow
 
 
 ## 基底クラスの拡張
-### 概要
 
-> 下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。{: .prompt-info }
+1. 理由
+    下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。
 
 ```csharp
 class AComponent : UIComponent
@@ -176,9 +176,7 @@ class BComponent : UIComponent
 }
 ```
 
-### 基底クラスが選べるようになる
-
-> 基底クラスを作る{: .prompt-info }
+2. 共通コードを抜き出して基底クラスを作る
 
 ```csharp
 class UIPDComponent : UIComponent
@@ -200,13 +198,11 @@ class UIPDComponent : UIComponent
 }
 ```
 
-### ツールで選択肢がリストで表示する
-
-> 生成する前に基底クラスを選択する{: .prompt-info }
+3. 生成する前に基底クラスを選択する
 
 ![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
 
-### 生成する前に必須要件がチェックできる
+4. 生成中に必須要件がチェックできる
 
 ```csharp
 class UIPDComponent : UIComponent
