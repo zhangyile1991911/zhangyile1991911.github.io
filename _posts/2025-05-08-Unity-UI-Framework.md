@@ -232,6 +232,6 @@ class UIPDComponent : UIComponent
 }
 ```
 
-### リポジトリ
+## リポジトリ
 
 [UIShowcase](https://github.com/zhangyile1991911/Unity_UIShowcase)
