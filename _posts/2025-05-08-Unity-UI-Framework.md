@@ -1,7 +1,7 @@
 ---
 title: UnityでのUI管理システム設計[改善中]
 author: zhangyile
-date: 2026-1-17 09:42:00 +0800
+date: 2026-2-14 09:42:00 +0800
 categories: [Work Log]
 tags: [Work,Development]
 comments: false
@@ -16,9 +16,9 @@ image:
 
 ### ゲーム開発におけるUIの管理問題
 1. UI表示順番管理
-2. UI要素をクラスの項目に紐つけるのが手間がかかる。毎回UI要素が変更されたら、変数に紐付け直す必要があります
+2. UI要素をクラスの変数に紐つけるのが手間なので毎回UI要素が変更されたら、変数との紐付けを作り直す必要があります
 3. UIのライフサイクルの管理
-4. バグが起きたときに調査したりしやすい。
+4. バグが起きたときにバグ調査
 5. アプリライフサイクルと同じように廃棄されずにUI要素がある　例えばホームページなど要望
 
 ### 対策
@@ -30,10 +30,10 @@ image:
 
 ## 仕組みの設計
 
-- この基盤について礎はUIComponent,UIWindow,UIManager三つクラスです。
-- UIComponentは最小単位のUI要素であります。
-- UIWindowとは複数のUIComponentを搭載できます。
-- 同じ名前UIWindowとUIComponentは一つのみです。
+- この基盤の礎はUIWidget,UIWindow,UIManager三つクラスにより成り立っています。
+- UIWidgetは最小単位のUI要素であります。
+- UIWindowとは複数のUIWidgetを搭載できます。
+- 同じ名前UIWindowとUIWidgetは一つのみです。
 - UIManagerはLRUというアルゴリズムでUIWindowの管理を行います。
 PS：LRUとはThe Least Recently Used Cache。
 
@@ -41,8 +41,8 @@ PS：LRUとはThe Least Recently Used Cache。
 ## メリット
 1. よく使われる画面を頻繁に生成することを避け、同じインスタンスを使い回す
 2. インメモリ使用量を一定範囲内に抑えることができる
-3. 長時間で使われない画面を自動的に廃棄する
-4. 自動的で変数がUI要素に紐付く
+3. 長時間で使われない画面を自動で廃棄する
+4. 自動で変数がUI要素に紐付く
 5. 管理ツールで目安に内部変数や状態が見える
 
 ## 例で説明する
@@ -86,20 +86,16 @@ PS：LRUとはThe Least Recently Used Cache。
 
 ## 自動的にバンディング,UIクラスのコードを生成する
 1. 画面を組み立てバンディングしたいオブジェクトを一定名前をつける
-![Desktop View](ui_framework/s7.jpg){: width="713" height="405" .w-75 .normal}
+![Desktop View](ui_framework/s7.png){: width="713" height="405" .w-75 .normal}
 2. 拡張したコマンドを利用する
-![Desktop View](ui_framework/s8.jpg){: width="710" height="242" .w-75 .normal}
+![Desktop View](ui_framework/s8.png){: width="710" height="242" .w-75 .normal}
 3. 生成するノードを枠に引き入れる
-![Desktop View](ui_framework/s9.jpg){: width="714" height="405" .w-75 .normal}
+![Desktop View](ui_framework/s9.png){: width="714" height="405" .w-75 .normal}
 
 ## 生成Windowボタンを押す
-1. プレハブが自動的に生成された
-![Desktop View](ui_framework/s10.jpg){: width="588" height="200" .w-75 .normal}
+1. プレハブとクラスが自動的に生成された
+![Desktop View](ui_framework/s11.png){: width="579" height="174" .w-75 .normal}
 
-2. 2.対応するコードが自動的にも生成された
-![Desktop View](ui_framework/s11.jpg){: width="579" height="174" .w-75 .normal}
-
-3. 生成されたコード
 
 ```csharp
 using System.Collections;
@@ -112,25 +108,23 @@ using SuperScrollView;
 /// <summary>
 /// Auto Generated Class!!!
 /// </summary>
-[UI((int)UIEnum.LoginWindow,"Assets/GameRes/Prefabs/Windows/LoginWindow.prefab")]
-public partial class LoginWindow : UIWindow
+[UI("Assets/Resources/Prefab/Windows/HomeWindow.prefab")]
+public partial class HomeWindow : UIWindow
 {
-    public Image Img_bg;
-    public TextMeshProUGUI Txt_Title;
-    public TextMeshProUGUI Txt_UserName;
-    public TextMeshProUGUI Txt_Passwd;
-    public TMP_InputField Input_UserName;
-    public TMP_InputField Input_Passwd;
+    public Transform Ins_BG;
+    public RectTransform RT_Center;
+    public Transform Ins_CommuCenterWidget;
+    public Transform Ins_TopResWidget;
 
-    public override void Init(GameObject go)
+    protected override void OnBind(GameObject go)
     {
         uiGo = go;
-        Img_bg = go.transform.Find("Img_bg").GetComponent<Image>();
-        Txt_Title = go.transform.Find("Txt_Title").GetComponent<TextMeshProUGUI>();
-        Txt_UserName = go.transform.Find("Txt_UserName").GetComponent<TextMeshProUGUI>();
-        Txt_Passwd = go.transform.Find("Txt_Passwd").GetComponent<TextMeshProUGUI>();
-        Input_UserName = go.transform.Find("Input_UserName").GetComponent<TMP_InputField>();
-        Input_Passwd = go.transform.Find("Input_Passwd").GetComponent<TMP_InputField>();
+        Ins_BG = go.transform.Find("Ins_BG").GetComponent<Transform>();
+        RT_Center = go.transform.Find("RT_Center").GetComponent<RectTransform>();
+        Ins_CommuCenterWidget = go.transform.Find("RT_Center/Ins_CommuCenterWidget").GetComponent<Transform>();
+        Ins_TopResWidget = go.transform.Find("Ins_TopResWidget").GetComponent<Transform>();
+
+        base.OnBind(go);
     }
 }
 ```
@@ -153,64 +147,67 @@ public partial class LoginWindow : UIWindow
     下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。
 
 ```csharp
-class AComponent : UIComponent
+class AWidget : UIWidget
 {
 	protected PlayableDirector rootPD;
 	protected Animator rootAnimator;
 	public override void OnCreate()
-  {
-      rootPD = uiTran.GetComponent<PlayableDirector>();
-      rootAnimator = uiTran.GetComponent<Animator>();
-  }
-  public override void OnShow(UIOpenParam openParam)
-  {//オブジェクトが表示時に何のアニメションを再生する
-	  rootPD.Play();
-  }
-  
-  public override void OnHide(UIOpenParam openParam)
-  {//オブジェクトが非表示時に何のアニメションを再生する
-	  rootPD.Play();
-  }
+    {
+        rootPD = uiTran.GetComponent<PlayableDirector>();
+        rootAnimator = uiTran.GetComponent<Animator>();
+    }
+
+    public override void OnShow(UIOpenParam openParam)
+    {//オブジェクトが表示時に何のアニメションを再生する
+        rootPD.Play();
+    }
+    
+    public override void OnHide(UIOpenParam openParam)
+    {//オブジェクトが非表示時に何のアニメションを再生する
+        rootPD.Play();
+    }
 }
 
-class BComponent : UIComponent
+class BWidget : UIWidget
 {
 	protected PlayableDirector rootPD;
 	protected Animator rootAnimator;
-	public override void OnCreate()
-  {
-      rootPD = uiTran.GetComponent<PlayableDirector>();
-      rootAnimator = uiTran.GetComponent<Animator>();
-  }
-  public override void OnShow(UIOpenParam openParam)
-  {
-  }
-  
-  public override void OnHide(UIOpenParam openParam)
-  {
-  }
+
+	protected override void OnCreate()
+    {
+        rootPD = uiTran.GetComponent<PlayableDirector>();
+        rootAnimator = uiTran.GetComponent<Animator>();
+    }
+
+    protected override void OnShow(UIOpenParam openParam)
+    {
+    }
+    
+    protected override void OnHide(UIOpenParam openParam)
+    {
+    }
 }
 ```
 
-2. 共通コードを抜き出して基底クラスを作る
+2. 共通コードを抜き出して基底クラスを作成する
 
 ```csharp
-class UIPDComponent : UIComponent
+class UIPDWidget : UIWidget
 {
 	protected PlayableDirector rootPD;
 	protected Animator rootAnimator;
-	public override void OnCreate()
-  {
-      rootPD = uiTran.GetComponent<PlayableDirector>();
-      rootAnimator = uiTran.GetComponent<Animator>();
-  }
-  public override void OnShow(UIOpenParam openParam)
-  {
-  }
-  
-  public override void OnHide(UIOpenParam openParam)
-  {
-  }
+	protected override void OnCreate()
+    {
+        rootPD = uiTran.GetComponent<PlayableDirector>();
+        rootAnimator = uiTran.GetComponent<Animator>();
+    }
+    protected override void OnShow(UIOpenParam openParam)
+    {
+    }
+    
+    protected override void OnHide(UIOpenParam openParam)
+    {
+    }
 }
 ```
 
@@ -218,17 +215,17 @@ class UIPDComponent : UIComponent
 
 ![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
 
-4. 生成中に必須要件がチェックできる
+4. 生成する前に必須要件がチェックする
 
 ```csharp
-class UIPDComponent : UIComponent
+class UIPDWidget : UIWidget
 {
 	protected PlayableDirector rootPD;
 	protected Animator rootAnimator;
 	//子クラスが生成される時に必須要件をチェックする
 	#if UNITY_EDITOR
-    [UIComponentChecker]
-    static bool CheckComponentExist(GameObject go)
+    [UIRequirement]
+    public static bool RequirementChecker(GameObject go)
     {
         var pd = go.GetComponent<PlayableDirector>();
         if(!pd)
@@ -247,6 +244,17 @@ class UIPDComponent : UIComponent
     #endif
 }
 ```
+
+### 要件が満たされない場合
+
+1. エラーが出る
+
+![Desktop View](ui_framework/s13.png){: width="579" height="174" .w-75 .normal}
+
+2. クラスとプレハブが生成されない
+
+![Desktop View](ui_framework/s14.png){: width="579" height="174" .w-75 .normal}
+
 
 ## Windowのライフサイクル管理の改善
 
@@ -275,4 +283,4 @@ public partial class TestWindow : UIWindow
 
 ## リポジトリ
 
-[UIShowcase](https://github.com/zhangyile1991911/Unity_UIShowcase)
+[UIFramework](https://github.com/zhangyile1991911/UIFramework)
