@@ -247,11 +247,11 @@ class UIPDWidget : UIWidget
 
 ### 要件が満たされない場合
 
-1. エラーが出る
+- エラーが出る
 
 ![Desktop View](ui_framework/s13.png){: width="579" height="174" .w-75 .normal}
 
-2. クラスとプレハブが生成されない
+- クラスとプレハブが生成されない
 
 ![Desktop View](ui_framework/s14.png){: width="579" height="174" .w-75 .normal}
 
