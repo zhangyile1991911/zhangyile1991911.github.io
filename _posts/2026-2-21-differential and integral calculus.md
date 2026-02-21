@@ -104,7 +104,7 @@ $$
 ## 洛必达法则
 $$
 \begin{equation}
- \lim_{varDelta x \to a} \frac{f(x)}{g(x)} = \lim_{varDelta x \to a} \frac{f’(x)}{g’(x)} 
+ \lim_{\varDelta x \to a} \frac{f(x)}{g(x)} = \lim_{\varDelta x \to a} \frac{f’(x)}{g’(x)} 
 \end{equation}
 $$
 
@@ -130,11 +130,11 @@ $$
  \int kdx = kx + c \\
  \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin (x) + c \\
  \int x^adx = \frac{x^{a+1}}{a+1} + c \\
- \int a^xdx = \frac{a^x}{\lna} + c \\
+ \int a^xdx = \frac{a^x}{\ln a} + c \\
  \int \frac{1}{x} = \ln (|x|) + c \\
  \int \cos xdx = \sin x + c \\
  \int \sin xdx = -\cos x + c \\
- \int \frac{1}{1+x^2} = \arctanx x + c \\
+ \int \frac{1}{1+x^2} = \arctan x + c \\
  \int \frac{1}{\cos^2 x} = \int \sec^2 x = \tan x + c \\
  \int \frac{1}{\sin^2 x} = \int \csc^2 x = -\cot x + c \\
  \int e^xdx = e^x + c
@@ -152,6 +152,7 @@ $$
 $$
 
 ## 华莱士公式 点火公式
+
 $$
 \begin{array}
 \int_{0}{\frac{\pi}{2}} \cos^n dx = \int_{0}{\frac{\pi}{2}} \sin^n dx \\
@@ -167,30 +168,30 @@ $$
 ## 不定积分根号处理
 
 $$
-\begin{array}
+\begin{enarray}
  \sqrt{a^2 - x^2} \\
  设 x = a \sin t \\
  \sqrt{a^2 - x^2} = a \times \cos t \\
  dx = a \times \cos t dt
-\end{array}
+\end{enarray}
 $$
 
 $$
-\begin{array}
+\begin{enarray}
  \sqrt{a^2 + x^2} \\
  设 x = a \tan t \\
  \sqrt{a^2 + x^2} = a \times \sec t \\
  dx = a \times \sec^2 t dt
-\end{array}
+\end{enarray}
 $$
 
 $$
-\begin{array}
+\begin{enarray}
  \sqrt{x^2 - a^2} \\
  设 x = a \sec t \\
  \sqrt{x^2 - a^2} = a \times \tan t \\
  dx = a \times \sec t \times \tan t dt
-\end{array}
+\end{enarray}
 $$
 
 ## 分布积分
@@ -208,8 +209,8 @@ $$
 $$
 \begin{array}
  \int f(x)dx 关于x的函数 \\
- \int_{a}^{b} f(x) dx 数字 \\
- \int_{a}^{b} = 0 = F(a) - F(a) \\
+ \int_{a}^{b} f(x)dx 数字 \\
+ \int_{a}^{b} = F(a) - F(a) = 0 \\
  \int_{a}^{b} f(x)dx= - \int_{b}^{a} f(x)dx \\
  \int_{a}^{b} f(x)dx = \int_{a}^{c} f(x)dx + \int_{c}^{b} f(x)dx
 \end{array}
