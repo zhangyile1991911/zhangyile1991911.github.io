@@ -2,8 +2,8 @@
 title: 微分積分の学習
 author: zhangyile
 date: 2026-2-21 13:42:00 +0800
-categories: [Work Log]
-tags: [Work,Development]
+categories: [math]
+tags: [math,Development]
 comments: false
 img_path: /assets/img/
 image:
