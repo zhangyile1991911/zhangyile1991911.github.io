@@ -155,12 +155,16 @@ $$
 
 $$
 \begin{array}
-\int_{0}{\frac{\pi}{2}} \cos^n dx = \int_{0}{\frac{\pi}{2}} \sin^n dx \\
-n = 奇数 \frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{2}{3} \times 1 \\
-n = 偶数 \frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{1}{2} \times \frac{\pi}{2} \\
 
-\int_{0}{\frac{\pi}{2}} \cos^5 xdx = \frac{4}{5} \times \frac{2}{3} \times 1 = \frac{8}{15} \\
-\int_{0}{\frac{\pi}{2}} \sin^6 xdx = \frac{5}{6} \times \frac{3}{4} \times \frac{1}{2} \times \frac{\pi}{2} = \frac{5\pi}{32}
+\int_{0}^{\frac{\pi}{2}} \cos^n dx = \int_{0}{\frac{\pi}{2}} \sin^n dx \\
+n = 奇数 \\
+\frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{2}{3} \times 1 \\
+n = 偶数 \\
+\frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{1}{2} \times \frac{\pi}{2} \\
+
+\int_{0}^{\frac{\pi}{2}} \cos^5 xdx = \frac{4}{5} \times \frac{2}{3} \times 1 = \frac{8}{15} \\
+\int_{0}^{\frac{\pi}{2}} \sin^6 xdx = \frac{5}{6} \times \frac{3}{4} \times \frac{1}{2} \times \frac{\pi}{2} = \frac{5\pi}{32}
+
 \end{array}
 $$
 
@@ -168,30 +172,30 @@ $$
 ## 不定积分根号处理
 
 $$
-\begin{enarray}
+\begin{eqnarray}
  \sqrt{a^2 - x^2} \\
  设 x = a \sin t \\
  \sqrt{a^2 - x^2} = a \times \cos t \\
  dx = a \times \cos t dt
-\end{enarray}
+\end{eqnarray}
 $$
 
 $$
-\begin{enarray}
+\begin{eqnarray}
  \sqrt{a^2 + x^2} \\
  设 x = a \tan t \\
  \sqrt{a^2 + x^2} = a \times \sec t \\
  dx = a \times \sec^2 t dt
-\end{enarray}
+\end{eqnarray}
 $$
 
 $$
-\begin{enarray}
+\begin{eqnarray}
  \sqrt{x^2 - a^2} \\
  设 x = a \sec t \\
  \sqrt{x^2 - a^2} = a \times \tan t \\
  dx = a \times \sec t \times \tan t dt
-\end{enarray}
+\end{eqnarray}
 $$
 
 ## 分布积分
@@ -208,8 +212,8 @@ $$
 
 $$
 \begin{array}
- \int f(x)dx 关于x的函数 \\
- \int_{a}^{b} f(x)dx 数字 \\
+ \int f(x)dx = 关于x的函数 \\
+ \int_{a}^{b} f(x)dx = 数字 \\
  \int_{a}^{b} = F(a) - F(a) = 0 \\
  \int_{a}^{b} f(x)dx= - \int_{b}^{a} f(x)dx \\
  \int_{a}^{b} f(x)dx = \int_{a}^{c} f(x)dx + \int_{c}^{b} f(x)dx
