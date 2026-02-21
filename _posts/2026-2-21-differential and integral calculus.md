@@ -47,25 +47,40 @@ $$
 $$
 
 ## 等价无穷小代换
-> x --> 0
-{: .prompt-info }
 
 $$
 \begin{eqnarray}
- \sin x ~ x  \\
- \tan x ~ x  \\
- \arcsin x ~ x \\
- \arctan x ~ x \\
- \ln(x+1) ~ x \\
- e^x -1 ~ x  \\
- a^x -1 ~ x\ln a  \\
- 1 - \cos x ~ \dfrac{x^2}{2} \\
- [\left(1 + x\right)^a - 1] ~ ax
+ x \to 0
+ \sin x \to x  \\
+ \tan x \to x  \\
+ \arcsin x\to x \\
+ \arctan x \to x \\
+ \ln(x+1) \to x \\
+ e^x -1 \to x  \\
+ a^x -1 \to x\ln a  \\
+ 1 - \cos x \to \frac{x^2}{2} \\
+ [\left(1 + x\right)^a - 1] \to ax
 \end{eqnarray}
 $$
 
 ## 常用导数
 
+$$
+\begin{array}{l}
+C’ = 0 \\
+(x^a)’ = ax^{a-1} \\
+(\sin x)’ = \cos x \\
+(\cos x)’ = -\sin x \\
+(\tan x)’ = \sec^2 x \\
+(\cot x)’ = -\csc^2 x \\
+(\ln |x|)’ = frac{1}{x} \\
+(\log_{a}(x))’ = frac{1}{x\lna} \\
+(e^x)’ = e^x \\
+(a^x)’ = a^x\ln a \\
+(\arcsin x)’ = frac{1}{\sqrt{1-x^2}} \\
+(\arctan x)’ = frac{1}{1+x^2}
+\end{array}
+$$
 
 ## 导数四则运算
 
