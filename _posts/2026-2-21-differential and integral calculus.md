@@ -50,7 +50,7 @@ $$
 
 $$
 \begin{eqnarray}
- x \to 0
+ \lim_{varDelta x \to 0} \\
  \sin x \to x  \\
  \tan x \to x  \\
  \arcsin x\to x \\
@@ -92,11 +92,55 @@ $$
 
 ## 导数四则运算
 
+$$
+\begin{array}
+[f(x)\pm g(x)]’ = f’(x) \pm g’(x)
+[f(x)\times g(x)]’ = f’(x) \times g(x) + f(x) \times g’(x)
+[\frac{f(x)}{g(x)}] = \frac{f’(x) \times g(x) + f(x) \times g’(x)}{g^2(x)}
+[f(g(x))]’ = f’(g(x)) \times g’(x)
+\end{array}
+$$
+
 ## 洛必达法则
+$$
+\begin{equation}
+ \lim_{varDelta x \to a} \frac{f(x)}{g(x)} = \lim_{varDelta x \to a} \frac{f’(x)}{g’(x)} 
+\end{equation}
+$$
 
 ## 泰勒公式
 
+$$
+\begin{array}
+e^x = 1 + \frac{1}{1!}x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3+\ldots \\
+sinx = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 + \ldots \\
+cosx = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + \ldots \\
+tanx = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \ldots \\
+\frac{1}{1-x} = 1 + x + x^2 + x^3 + x^4 + \ldots \\
+\frac{1}{1+x} = 1 - x + x^2 - x^3 + x^4 + \ldots \\
+\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + \ldots \\
+f(x) = f(x_0) + f’(x- x_0) + \frac{f’’(x_0)}{2!}x^2 + \ldots 
+\end{array}
+$$
+
 ## 不定积分
+
+$$
+\begin{array}
+ \int kdx = kx + c
+ \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin (x) + c
+ \int x^adx = \frac{x^{a+1}}{a+1} + c
+ \int a^xdx = \frac{a^x}{\lna} + c
+ \int \frac{1}{x} = \ln (|x|) + c
+ \int \cos xdx = \sin x + c
+ \int \sin xdx = -\cos x + c
+ \int \frac{1}{1+x^2} = \arctanx x + c
+ \int \frac{1}{\cos^2 x} = \int \sec^2 x = \tan x + c
+ \int \frac{1}{\sin^2 x} = \int \csc^2 x = -\cot x + c
+ \int e^xdx = e^x + c
+\end{array}
+$$
+
 
 ## 不定积分运算法则
 
