@@ -17,8 +17,8 @@ image:
 
 $$
 \begin{eqnarray}
-  \cos (\pi/2 - \alpha) = \sin \alpha \\
-  \cos (\pi/2 - \alpha) = \sin \alpha
+  \cos (\frac{\pi}{2} - \alpha) = \sin \alpha \\
+  \cos (\frac{\pi}{2} - \alpha) = \sin \alpha
 \end{eqnarray}
 $$
 
@@ -39,8 +39,8 @@ $$
 
 $$
 \begin{eqnarray}
-  \cos^2 (\alpha/2) = \frac{1 + \cos \alpha}{2} \\
-  \sin^2 (\alpha/2) = \frac{1 - \cos \alpha}{2} \\
+  \cos^2 (\frac{\alpha}{2}) = \frac{1 + \cos \alpha}{2} \\
+  \sin^2 (\frac{\alpha}{2}) = \frac{1 - \cos \alpha}{2} \\
   \cos^2 (\alpha) = \frac{1 + \cos 2\alpha}{2} \\
   \sin^2 (\alpha) = \frac{1 - \cos 2\alpha}{2} 
 \end{eqnarray}
