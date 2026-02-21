@@ -16,52 +16,34 @@ image:
 ## 三角函数半角公式
 
 $$
-\begin{equation}
-  \sin (\pi/2 - \alpha) = \cos \alpha
-\end{equation}
-\begin{equation}
+\begin{eqnarray}
+  \cos (\pi/2 - \alpha) = \sin \alpha \\
   \cos (\pi/2 - \alpha) = \sin \alpha
-\end{equation}
+\end{eqnarray}
 $$
 
 ## 三角函数二倍角公式
 
 $$
-\begin{equation}
-  \sin 2\theta = 2\sin \times \cos
-\end{equation}
-\begin{equation}
-  \cos 2\theta = \cos^2 \theta - \sin^2 \theta
-\end{equation}
-\begin{equation}
-  \cos 2\theta = 2\cos^2 \theta - 1
-\end{equation}
-\begin{equation}
-  \cos 2\theta = 1 - 2\sin^ \theta
-\end{equation}
-\begin{equation}
-  \sin^2 \theta + \cos^2 \theta = 1 
-\end{equation}
-\begin{equation}
+\begin{eqnarray}
+  \sin 2\theta = 2\sin \times \cos \\
+  \cos 2\theta = \cos^2 \theta - \sin^2 \theta \\
+  \cos 2\theta = 2\cos^2 \theta - 1 \\
+  \cos 2\theta = 1 - 2\sin^ \theta \\
+  \sin^2 \theta + \cos^2 \theta = 1 \\
   \tan^2 \theta = \frac{2\tan \theta}{1 - \tan^2 \theta}
-\end{equation}
+\end{eqnarray}
 $$
 
 ## 降次公式
 
 $$
-\begin{equation}
-  \cos^2 (\alpha/2) = \frac{1 + \cos \alpha}{2}
-\end{equation}
-\begin{equation}
-  \sin^2 (\alpha/2) = \frac{1 - \cos \alpha}{2}
-\end{equation}
-\begin{equation}
-  \cos^2 (\alpha) = \frac{1 + \cos 2\alpha}{2}
-\end{equation}
-\begin{equation}
-  \sin^2 (\alpha) = \frac{1 - \cos 2\alpha}{2}
-\end{equation}
+\begin{eqnarray}
+  \cos^2 (\alpha/2) = \frac{1 + \cos \alpha}{2} \\
+  \sin^2 (\alpha/2) = \frac{1 - \cos \alpha}{2} \\
+  \cos^2 (\alpha) = \frac{1 + \cos 2\alpha}{2} \\
+  \sin^2 (\alpha) = \frac{1 - \cos 2\alpha}{2} 
+\end{eqnarray}
 $$
 
 ## 等价无穷小代换
@@ -69,33 +51,17 @@ $$
 {: .prompt-info }
 
 $$
-\begin{equation}
- \sin x ~ x
-\end{equation}
-\begin{equation}
- \tan x ~ x
-\end{equation}
-\begin{equation}
- \arcsin x ~ x
-\end{equation}
-\begin{equation}
- \arctan x ~ x
-\end{equation}
-\begin{equation}
- \ln(x+1) ~ x
-\end{equation}
-\begin{equation}
- e^x -1 ~ x
-\end{equation}
-\begin{equation}
- a^x -1 ~ x\ln a
-\end{equation}
-\begin{equation}
- 1 - \cos x ~ \dfrac{x^2}{2}
-\end{equation}
-\begin{equation}
+\begin{eqnarray}
+ \sin x ~ x  \\
+ \tan x ~ x  \\
+ \arcsin x ~ x \\
+ \arctan x ~ x \\
+ \ln(x+1) ~ x \\
+ e^x -1 ~ x  \\
+ a^x -1 ~ x\ln a  \\
+ 1 - \cos x ~ \dfrac{x^2}{2} \\
  [\left(1 + x\right)^a - 1] ~ ax
-\end{equation}
+\end{eqnarray}
 $$
 
 ## 常用导数
