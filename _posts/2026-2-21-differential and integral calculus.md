@@ -11,12 +11,13 @@ image:
   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
+
 ## 三角函数半角公式
 
 $$
 \begin{equation}
-  \sin (π/2 - α) = \cos α
-  \cos (π/2 - α) = \sin α
+  \sin (\pi/2 - α) = \cos α
+  \cos (\pi/2 - α) = \sin α
 \end{equation}
 $$
 
@@ -24,12 +25,12 @@ $$
 
 $$
 \begin{equation}
-  \sin 2θ = 2\sin \times \cos
-  \cos 2θ = \cos^2 θ - \sin^2 θ
-  \cos 2θ = 2\cos^2 θ - 1
-  \cos 2θ = 1 - 2\sin^ θ
-  \sin^2 θ + cos^2 θ = 1 
-  \tan^2 θ = \dfrac{2\tan θ}{1 - \tan^2 θ}
+  \sin 2\theta = 2\sin \times \cos
+  \cos 2\theta = \cos^2 \theta - \sin^2 \theta
+  \cos 2\theta = 2\cos^2 \theta - 1
+  \cos 2\theta = 1 - 2\sin^ \theta
+  \sin^2 \theta + \cos^2 \theta = 1 
+  \tan^2 \theta = \frac{2\tan \theta}{1 - \tan^2 \theta}
 \end{equation}
 $$
 
@@ -37,10 +38,10 @@ $$
 
 $$
 \begin{equation}
-  \cos^2 (α/2) = \dfrac{1 + \cos α}{2}
-  \sin^2 (α/2) = \dfrac{1 - \cos α}{2}
-  \cos^2 (α) = \dfrac{1 + \cos 2α}{2}
-  \sin^2 (α) = \dfrac{1 - \cos 2α}{2}
+  \cos^2 (α/2) = \frac{1 + \cos α}{2}
+  \sin^2 (α/2) = \frac{1 - \cos α}{2}
+  \cos^2 (α) = \frac{1 + \cos 2α}{2}
+  \sin^2 (α) = \frac{1 - \cos 2α}{2}
 \end{equation}
 $$
 
