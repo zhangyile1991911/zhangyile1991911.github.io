@@ -112,13 +112,13 @@ $$
 
 $$
 \begin{array}
- e^x = 1 + \frac{1}{1!}x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3+\ldots \\
- sinx = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 + \ldots \\
- cosx = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + \ldots \\
- tanx = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \ldots \\
+ \e^x = 1 + \frac{1}{1!}x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3+\ldots \\
+ \sin x = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 + \ldots \\
+ \cos x = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + \ldots \\
+ \tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \ldots \\
  \frac{1}{1-x} = 1 + x + x^2 + x^3 + x^4 + \ldots \\
  \frac{1}{1+x} = 1 - x + x^2 - x^3 + x^4 + \ldots \\
- \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + \ldots \\
+ \ln (1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + \ldots \\
  f(x) = f(x_0) + f’(x- x_0) + \frac{f’’(x_0)}{2!}x^2 + \ldots 
 \end{array}
 $$
@@ -127,17 +127,17 @@ $$
 
 $$
 \begin{array}
- \( \displaystyle \int kdx = kx + c \) \\
- \( \displaystyle \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin (x) + c \) \\
- \( \displaystyle \int x^adx = \frac{x^{a+1}}{a+1} + c \) \\
- \( \displaystyle \int a^xdx = \frac{a^x}{\ln a} + c \) \\
- \( \displaystyle \int \frac{1}{x} = \ln (|x|) + c \) \\
- \( \displaystyle \int \cos xdx = \sin x + c \) \\
- \( \displaystyle \int \sin xdx = -\cos x + c \) \\
- \( \displaystyle \int \frac{1}{1+x^2} = \arctan x + c \) \\
- \( \displaystyle \int \frac{1}{\cos^2 x} = \int \sec^2 x = \tan x + c \) \\
- \( \displaystyle \int \frac{1}{\sin^2 x} = \int \csc^2 x = -\cot x + c \) \\
- \( \displaystyle \int e^xdx = e^x + c \)
+  \displaystyle \int kdx = kx + c \\
+  \displaystyle \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin (x) + c \\
+  \displaystyle \int x^adx = \frac{x^{a+1}}{a+1} + c \\
+  \displaystyle \int a^xdx = \frac{a^x}{\ln a} + c \\
+  \displaystyle \int \frac{1}{x} = \ln (|x|) + c \\
+  \displaystyle \int \cos xdx = \sin x + c \\
+  \displaystyle \int \sin xdx = -\cos x + c \\
+  \displaystyle \int \frac{1}{1+x^2} = \arctan x + c \\
+  \displaystyle \int \frac{1}{\cos^2 x} = \int \sec^2 x = \tan x + c \\
+  \displaystyle \int \frac{1}{\sin^2 x} = \int \csc^2 x = -\cot x + c \\
+  \displaystyle \int e^xdx = e^x + c
 \end{array}
 $$
 
@@ -155,13 +155,11 @@ $$
 
 $$
 \begin{array}
-
 \int_{0}^{\frac{\pi}{2}} \cos^n dx = \int_{0}^{\frac{\pi}{2}} \sin^n dx \\
 n = 奇数 \\
 \frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{2}{3} \times 1 \\
 n = 偶数 \\
 \frac{n-1}{n} \times \frac{n-3}{n-2} \ldots \frac{1}{2} \times \frac{\pi}{2} \\
-
 \int_{0}^{\frac{\pi}{2}} \cos^5 xdx = \frac{4}{5} \times \frac{2}{3} \times 1 = \frac{8}{15} \\
 \int_{0}^{\frac{\pi}{2}} \sin^6 xdx = \frac{5}{6} \times \frac{3}{4} \times \frac{1}{2} \times \frac{\pi}{2} = \frac{5\pi}{32}
 
