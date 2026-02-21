@@ -26,7 +26,7 @@ $$
 
 $$
 \begin{eqnarray}
-  \sin 2\theta = 2\sin \times \cos \\
+  \sin 2\theta = 2\sin \theta \times \cos \theta \\
   \cos 2\theta = \cos^2 \theta - \sin^2 \theta \\
   \cos 2\theta = 2\cos^2 \theta - 1 \\
   \cos 2\theta = 1 - 2\sin^ \theta \\
@@ -63,6 +63,14 @@ $$
 \end{eqnarray}
 $$
 
+## 无穷大
+
+$$
+\begin{equation}
+\ln x \leq x^a \leq x^b \leq c^x \leq d^x \leq x! \leq x^x
+\end{equation}
+$$
+
 ## 常用导数
 
 $$
@@ -73,12 +81,12 @@ C’ = 0 \\
 (\cos x)’ = -\sin x \\
 (\tan x)’ = \sec^2 x \\
 (\cot x)’ = -\csc^2 x \\
-(\ln |x|)’ = frac{1}{x} \\
-(\log_{a}(x))’ = frac{1}{x\lna} \\
+(\ln |x|)’ = \frac{1}{x} \\
+(\log_{a}(x))’ = \frac{1}{x\lna} \\
 (e^x)’ = e^x \\
 (a^x)’ = a^x\ln a \\
-(\arcsin x)’ = frac{1}{\sqrt{1-x^2}} \\
-(\arctan x)’ = frac{1}{1+x^2}
+(\arcsin x)’ = \frac{1}{\sqrt{1-x^2}} \\
+(\arctan x)’ = \frac{1}{1+x^2}
 \end{array}
 $$
 
