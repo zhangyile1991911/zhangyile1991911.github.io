@@ -5,6 +5,7 @@ date: 2026-2-21 13:42:00 +0800
 categories: [math]
 tags: [math,Development]
 comments: false
+math: true
 img_path: /assets/img/
 image:
   path: company_without/isogashii_man.png
@@ -16,8 +17,9 @@ image:
 
 $$
 \begin{equation}
-  \sin (\pi/2 - α) = \cos α
-  \cos (\pi/2 - α) = \sin α
+  \sin (\pi/2 - \alpha) = \cos \alpha
+  \cos (\pi/2 - \alpha) = \sin \alpha
+  \label{eq:series}
 \end{equation}
 $$
 
@@ -38,10 +40,10 @@ $$
 
 $$
 \begin{equation}
-  \cos^2 (α/2) = \frac{1 + \cos α}{2}
-  \sin^2 (α/2) = \frac{1 - \cos α}{2}
-  \cos^2 (α) = \frac{1 + \cos 2α}{2}
-  \sin^2 (α) = \frac{1 - \cos 2α}{2}
+  \cos^2 (\alpha/2) = \frac{1 + \cos \alpha}{2}
+  \sin^2 (\alpha/2) = \frac{1 - \cos \alpha}{2}
+  \cos^2 (\alpha) = \frac{1 + \cos 2\alpha}{2}
+  \sin^2 (\alpha) = \frac{1 - \cos 2\alpha}{2}
 \end{equation}
 $$
 
