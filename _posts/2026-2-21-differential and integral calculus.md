@@ -18,6 +18,7 @@ image:
 $$
 \begin{equation}
   \sin (\pi/2 - \alpha) = \cos \alpha
+  \label{eq:series}
   \cos (\pi/2 - \alpha) = \sin \alpha
   \label{eq:series}
 \end{equation}
@@ -28,11 +29,17 @@ $$
 $$
 \begin{equation}
   \sin 2\theta = 2\sin \times \cos
+
   \cos 2\theta = \cos^2 \theta - \sin^2 \theta
+
   \cos 2\theta = 2\cos^2 \theta - 1
+
   \cos 2\theta = 1 - 2\sin^ \theta
+
   \sin^2 \theta + \cos^2 \theta = 1 
+
   \tan^2 \theta = \frac{2\tan \theta}{1 - \tan^2 \theta}
+
 \end{equation}
 $$
 
@@ -48,7 +55,8 @@ $$
 $$
 
 ## 等价无穷小代换
-<info>x -> 0</info>
+> x --> 0
+{: .prompt-info }
 
 $$
  \sin x ~ x
@@ -59,7 +67,7 @@ $$
  e^x -1 ~ x
  a^x -1 ~ x\ln a
  1 - \cos x ~ \dfrac{x^2}{2}
- [\lef(1 + x\right)^a - 1] ~ ax
+ [\left(1 + x\right)^a - 1] ~ ax
 $$
 
 ## 常用导数
