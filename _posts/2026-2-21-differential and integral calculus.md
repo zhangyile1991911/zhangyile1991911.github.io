@@ -18,9 +18,9 @@ image:
 $$
 \begin{equation}
   \sin (\pi/2 - \alpha) = \cos \alpha
-  \label{eq:series}
+\end{equation}
+\begin{equation}
   \cos (\pi/2 - \alpha) = \sin \alpha
-  \label{eq:series}
 \end{equation}
 $$
 
@@ -29,17 +29,21 @@ $$
 $$
 \begin{equation}
   \sin 2\theta = 2\sin \times \cos
-
+\end{equation}
+\begin{equation}
   \cos 2\theta = \cos^2 \theta - \sin^2 \theta
-
+\end{equation}
+\begin{equation}
   \cos 2\theta = 2\cos^2 \theta - 1
-
+\end{equation}
+\begin{equation}
   \cos 2\theta = 1 - 2\sin^ \theta
-
+\end{equation}
+\begin{equation}
   \sin^2 \theta + \cos^2 \theta = 1 
-
+\end{equation}
+\begin{equation}
   \tan^2 \theta = \frac{2\tan \theta}{1 - \tan^2 \theta}
-
 \end{equation}
 $$
 
@@ -48,8 +52,14 @@ $$
 $$
 \begin{equation}
   \cos^2 (\alpha/2) = \frac{1 + \cos \alpha}{2}
+\end{equation}
+\begin{equation}
   \sin^2 (\alpha/2) = \frac{1 - \cos \alpha}{2}
+\end{equation}
+\begin{equation}
   \cos^2 (\alpha) = \frac{1 + \cos 2\alpha}{2}
+\end{equation}
+\begin{equation}
   \sin^2 (\alpha) = \frac{1 - \cos 2\alpha}{2}
 \end{equation}
 $$
@@ -59,15 +69,33 @@ $$
 {: .prompt-info }
 
 $$
+\begin{equation}
  \sin x ~ x
+\end{equation}
+\begin{equation}
  \tan x ~ x
+\end{equation}
+\begin{equation}
  \arcsin x ~ x
+\end{equation}
+\begin{equation}
  \arctan x ~ x
+\end{equation}
+\begin{equation}
  \ln(x+1) ~ x
+\end{equation}
+\begin{equation}
  e^x -1 ~ x
+\end{equation}
+\begin{equation}
  a^x -1 ~ x\ln a
+\end{equation}
+\begin{equation}
  1 - \cos x ~ \dfrac{x^2}{2}
+\end{equation}
+\begin{equation}
  [\left(1 + x\right)^a - 1] ~ ax
+\end{equation}
 $$
 
 ## 常用导数
