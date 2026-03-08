@@ -170,30 +170,30 @@ $$
 ## 不定积分根号处理
 
 $$
-\begin{eqnarray}
+\begin{array}
  \sqrt{a^2 - x^2} \\
  设 x = a \sin t \\
  \sqrt{a^2 - x^2} = a \times \cos t \\
  dx = a \times \cos t dt
-\end{eqnarray}
+\end{array}
 $$
 
 $$
-\begin{eqnarray}
+\begin{array}
  \sqrt{a^2 + x^2} \\
  设 x = a \tan t \\
  \sqrt{a^2 + x^2} = a \times \sec t \\
  dx = a \times \sec^2 t dt
-\end{eqnarray}
+\end{array}
 $$
 
 $$
-\begin{eqnarray}
+\begin{array}
  \sqrt{x^2 - a^2} \\
  设 x = a \sec t \\
  \sqrt{x^2 - a^2} = a \times \tan t \\
  dx = a \times \sec t \times \tan t dt
-\end{eqnarray}
+\end{array}
 $$
 
 ## 分布积分
@@ -218,6 +218,85 @@ $$
 \end{array}
 $$
 
+## 定积分应用
+
+$$
+\begin{array}
+ y=x^2-2x x在[1,2)之间的曲线与x轴 x=1围成的图形 求该图形绕Y轴旋转一周形成的体积 \\
+ 横切法 \\
+ y + (x-1)^2 - 1 \\
+ y + 1 = (x - 1)^2 \\
+ x = 1 \pm \sqrt{y+1} \\
+ x = 1 + \sqrt{y+1} \\
+ \int_{-1}{0} (1+\sqrt{y+1})^2
+ \int_{-1}^{0}x^2\pi dy \\
+ \pi int_{-1}{0}(1+y+1+2\sqrt{y+1})dy \\
+ \pi int_{-1}{0}(2+y+2\sqrt{y+1})dy \\
+ \pi (2y + \frac{y^2}{2} + (\sqrt{y+1})^\frac{3}{2}\frac{2}{3}2) \\
+ \frac{17}{6} \pi \\
+ V = \frac{17}{6} \pi - \pi = \frac{11}{6} \pi
+ 竖切法 \\
+ 体积 = \lvert y \rvert 2 \times \pi \times x \\
+ \int_{1}{2} \lvert y \rvert 2 \pi x \\
+ \int_{1}{2} (2x - x^2) 2 \pi x \\
+ 2x 2\pi x - 2\pi x^3 \\
+ 2\pi (2x^2 - x^3) \\
+ 2\pi int_{2}{1}(2x^2 - x^3)dx \\
+ 2\pi (\frac{2}{3} x^3 - \frac{x^4}{4})
+\end{array}
+$$
+
+## 偏微分方程
+
+$$
+\begin{equation}
+  y’=x 解 y=\frac{x^2}{2} + C
+\end{equation}
+$$
+
+$$
+\begin{array}
+  y’= x 当x = 0 时 y = 1 \\
+  解出 y=\frac{x^2}{2} + C \\
+  带入 x = 0 \\
+  1 = 0 + C \\
+  y = \frac{x^2}{2} + 1
+\end{array}
+$$
+
+$$
+\begin{array}
+  y’’= x \\
+  解 y’ = \frac{x^2}{2} + c_1 \\
+  y’’ = \frac{x^2}{x} +c_1x + c_2 \\
+  每一次求原函数，需要加一个c
+\end{array}
+$$
+
+## 一阶微分方程
+
+### 分离变量法
+$$
+\begin{array}
+  y’= 2xy \\
+  y’ = \frac{dy}{dx} \\
+  \frac{dy}{dx} = 2xy \\
+  \frac{dy}{y} = 2xdx \\
+  \int \frac{dy}{y} = \int 2xdx \\
+  ln\lvert y \rvert = x^2 +C \\
+  隐函数，左右两边e的指数 \\
+  e^{ln\lvert y \rvert} = e^{x^2+c} \\
+  \lvert y \rvert = e^{x^2+c} \\
+  \lvert y \rvert = e^{x^2} \times e^c \\
+  因为 e^c 可以取到所有实数 写成C \\
+  y=Ce^{x^2} \\
+\end{array}
+$$
+
+### y’=p(x)y的通解
+$$
+y=ce^{\int p(x)dx}
+$$
 
 
 
