@@ -278,6 +278,7 @@ $$
 ### 分离变量法
 $$
 \begin{array}
+
   y’= 2xy \\
   y’ = \frac{dy}{dx} \\
   \frac{dy}{dx} = 2xy \\
@@ -293,12 +294,40 @@ $$
 \end{array}
 $$
 
-### y’=p(x)y的通解
+### 通解
 $$
+\begin{array}
+y’=p(x)y \\
 y=ce^{\int p(x)dx}
+\end{array}
 $$
 
 
+## 偏导数
+$$
+\begin{array}
+
+\frac{\partial z}{\partial x} = lim_{varDelta x \to 0}frac{z(x + \partial x,y)+z(x,y)}{varDelta x} \\
+\frac{\partial z}{\partial y} = lim_{varDelta y \to 0}frac{z(x ,y + \partial y)+z(z,y)}{varDelta x} \\
+
+z = f(x,y) = x^2 + 3xy + y^2 在(1,2)处的偏导数
+
+\frac{\partial z}{\partial x} = 2x + 3y + 0 \\
+\frac{\partial z}{\partial y} = 0 + 3x + 2y \\
+将(1,2)带入
+\frac{\partial z}{\partial x}(1,2) =  8
+\frac{\partial z}{\partial y}(1,2) =  7
+
+S = frac{u^2 + v^2}{uv}
+
+Z = (1 + xy)^y
+
+U = x^{\frac{y}{z}}
+
+Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1)
+
+\end{array}
+$$
 
 
 
