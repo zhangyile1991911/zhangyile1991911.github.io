@@ -308,129 +308,81 @@ $$
 ## 偏导数
 
 $$
-\begin{eqnarray}
-
-\frac{\partial z}{\partial x} = \lim_{\varDelta x \to 0}\frac{z(x + \partial x,y)+z(x,y)}{\varDelta x}\\
-\frac{\partial z}{\partial y} = \lim_{\varDelta y \to 0}\frac{z(x ,y + \partial y)+z(z,y)}{\varDelta x}\\
-
-z = f(x,y) = x^2 + 3xy + y^2 在(1,2)处的偏导数\\
-
-\frac{\partial z}{\partial x} = 2x + 3y + 0\\
-\frac{\partial z}{\partial y} = 0 + 3x + 2y\\
-将(1,2)带入
-\frac{\partial z}{\partial x}(1,2) =  8\\
-\frac{\partial z}{\partial y}(1,2) =  7\\
-第一题 \\
-S = \frac{u^2 + v^2}{uv}\\
-S = \frac{u}{v} + \frac{v}{u}\\
-\frac{\partial S}{\partial u} = \frac{1}{v} - \frac{v}{u^2}\\
-\frac{\partial S}{\partial v} = -\frac{u}{v^2} + \frac{1}{u}\\
-第二题 \\
-Z = (1 + xy)^y \\
-\frac{\partial z}{\partial x} = y(1+xy)^{y-1}y = y^2(1+xy)^{y-1} \\
-利用
-a^b = e^{blna} \\
-(x^x)’ = (e^{xlnx})’ = e^{xlnx}(xlnx) \\
-\frac{\partial z}{\partial y} = (e^{yln(1+xy)})’ \\
-(e^{yln(1+xy)})’ = e^{yln(1+xy)}[ln(1+xy)+\frac{xy}{1+xy}] \\
-
-U = x^{\frac{y}{z}} \\
-\frac{\partial U}{\partial x} = \frac{y}{z}x^{\frac{y}{z}-1} \\
-\frac{\partial U}{\partial y} = x^{\frac{y}{z}}ln(x)\frac{1}{z} \\
-\frac{\partial U}{\partial z} = x^{\frac{y}{z}}lnx(-\frac{y}{z^2}) \\
-
-
-Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1) \\
-y=1带入
-Z = x 
-\frac{\partial z}{\partial x} = 1
-
-\end{eqnarray}
-$$
-
-
-$$
 \begin{aligned}
 
-&\text{偏导数定义：}\\
-\frac{\partial z}{\partial x} 
+\text{偏导定义：} \\
+\frac{\partial z}{\partial x}
 &= \lim_{\Delta x \to 0}
 \frac{z(x+\Delta x,y)-z(x,y)}{\Delta x} \\
 
-\frac{\partial z}{\partial y} 
+\frac{\partial z}{\partial y}
 &= \lim_{\Delta y \to 0}
-\frac{z(x,y+\Delta y)-z(x,y)}{\Delta y} \\[10pt]
+\frac{z(x,y+\Delta y)-z(x,y)}{\Delta y} \\[8pt]
 
 
-&\text{例1：} z=f(x,y)=x^2+3xy+y^2 \\
+\text{例1：} \\
+z &= x^2 + 3xy + y^2 \\
 
-\frac{\partial z}{\partial x} 
-&= 2x+3y \\
+\frac{\partial z}{\partial x}
+&= 2x + 3y \\
 
-\frac{\partial z}{\partial y} 
-&= 3x+2y \\
+\frac{\partial z}{\partial y}
+&= 3x + 2y \\
 
-\text{代入 }(1,2)： \quad
-\frac{\partial z}{\partial x}(1,2) &= 8 \\
-\frac{\partial z}{\partial y}(1,2) &= 7 \\[10pt]
+\text{代入 }(1,2)： \\
+\frac{\partial z}{\partial x}(1,2)
+&= 8 \\
+\frac{\partial z}{\partial y}(1,2)
+&= 7 \\[10pt]
 
 
-&\text{第一题：} \\
-
-S &= \frac{u^2+v^2}{uv} 
+\text{第一题：} \\
+S &= \frac{u^2 + v^2}{uv}
 = \frac{u}{v} + \frac{v}{u} \\
 
-\frac{\partial S}{\partial u} 
+\frac{\partial S}{\partial u}
 &= \frac{1}{v} - \frac{v}{u^2} \\
 
-\frac{\partial S}{\partial v} 
+\frac{\partial S}{\partial v}
 &= -\frac{u}{v^2} + \frac{1}{u} \\[10pt]
 
 
-&\text{第二题：} \\
-
+\text{第二题：} \\
 Z &= (1+xy)^y \\
 
-\frac{\partial Z}{\partial x} 
-&= y(1+xy)^{y-1} \cdot y
-= y^2(1+xy)^{y-1} \\
-
-&\text{利用 } a^b = e^{b\ln a} \\
+\frac{\partial Z}{\partial x}
+&= y^2 (1+xy)^{y-1} \\
 
 Z &= e^{y\ln(1+xy)} \\
 
-\frac{\partial Z}{\partial y} 
+\frac{\partial Z}{\partial y}
 &= e^{y\ln(1+xy)}
-\left[
+\left(
 \ln(1+xy) + \frac{xy}{1+xy}
-\right] \\[10pt]
+\right) \\[10pt]
 
 
-&\text{第三题：} \\
-
+\text{第三题：} \\
 U &= x^{\frac{y}{z}} \\
 
-\frac{\partial U}{\partial x} 
-&= \frac{y}{z}x^{\frac{y}{z}-1} \\
+\frac{\partial U}{\partial x}
+&= \frac{y}{z} x^{\frac{y}{z}-1} \\
 
-\frac{\partial U}{\partial y} 
-&= x^{\frac{y}{z}} \ln(x)\cdot \frac{1}{z} \\
+\frac{\partial U}{\partial y}
+&= x^{\frac{y}{z}} \ln x \cdot \frac{1}{z} \\
 
-\frac{\partial U}{\partial z} 
-&= x^{\frac{y}{z}} \ln(x)\left(-\frac{y}{z^2}\right) \\[10pt]
+\frac{\partial U}{\partial z}
+&= x^{\frac{y}{z}} \ln x \left(-\frac{y}{z^2}\right) \\[10pt]
 
 
-&\text{第四题：} \\
-
+\text{第四题：} \\
 Z &= x + (y-1)\arcsin\left(\sqrt{\frac{x}{y}}\right) \\
 
-\text{令 } y=1：\quad Z &= x \\
+y=1 \Rightarrow\quad
+Z &= x \\
 
-\frac{\partial z}{\partial x}(0,1) &= 1
+\frac{\partial z}{\partial x}(0,1)
+&= 1
 
 \end{aligned}
 $$
-
-
-
-
