@@ -308,11 +308,12 @@ $$
 ## 偏导数
 
 $$
-\begin{array}
+\begin{eqnarray}
 
 \begin{equation}
 \frac{\partial z}{\partial x} = \lim_{\varDelta x \to 0}\frac{z(x + \partial x,y)+z(x,y)}{\varDelta x}
 \end{equation}
+
 \begin{equation}
 \frac{\partial z}{\partial y} = \lim_{\varDelta y \to 0}\frac{z(x ,y + \partial y)+z(z,y)}{\varDelta x}
 \end{equation}
@@ -352,7 +353,7 @@ Z = x
 
 \frac{\partial z}{\partial x} = 1
 
-\end{array}
+\end{eqnarray}
 $$
 
 
