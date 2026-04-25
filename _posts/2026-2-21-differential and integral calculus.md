@@ -310,13 +310,8 @@ $$
 $$
 \begin{eqnarray}
 
-\begin{equation}
-\frac{\partial z}{\partial x} = \lim_{\varDelta x \to 0}\frac{z(x + \partial x,y)+z(x,y)}{\varDelta x}
-\end{equation}
-
-\begin{equation}
-\frac{\partial z}{\partial y} = \lim_{\varDelta y \to 0}\frac{z(x ,y + \partial y)+z(z,y)}{\varDelta x}
-\end{equation}
+\frac{\partial z}{\partial x} = \lim_{\varDelta x \to 0}\frac{z(x + \partial x,y)+z(x,y)}{\varDelta x} \\
+\frac{\partial z}{\partial y} = \lim_{\varDelta y \to 0}\frac{z(x ,y + \partial y)+z(z,y)}{\varDelta x} \\
 
 z = f(x,y) = x^2 + 3xy + y^2 在(1,2)处的偏导数
 
@@ -345,12 +340,9 @@ U = x^{\frac{y}{z}} \\
 \frac{\partial U}{\partial z} = x^{\frac{y}{z}}lnx\(-\frac{y}{z^2}) \\
 
 
-Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1)
+Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1) \\
 y=1带入
-\begin{equation}
 Z = x 
-\end{equation}
-
 \frac{\partial z}{\partial x} = 1
 
 \end{eqnarray}
