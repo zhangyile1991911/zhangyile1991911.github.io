@@ -276,11 +276,12 @@ $$
 ## 一阶微分方程
 
 ### 分离变量法
+
 $$
 \begin{array}
 
   y’= 2xy \\
-  y’ = \frac{dy}{dx} \\
+  y’=\frac{dy}{dx} \\
   \frac{dy}{dx} = 2xy \\
   \frac{dy}{y} = 2xdx \\
   \int \frac{dy}{y} = \int 2xdx \\
@@ -295,6 +296,7 @@ $$
 $$
 
 ### 通解
+
 $$
 \begin{array}
 y’=p(x)y \\
@@ -304,9 +306,9 @@ $$
 
 
 ## 偏导数
+
 $$
 \begin{array}
-
 \frac{\partial z}{\partial x} = lim_{varDelta x \to 0}frac{z(x + \partial x,y)+z(x,y)}{varDelta x} \\
 \frac{\partial z}{\partial y} = lim_{varDelta y \to 0}frac{z(x ,y + \partial y)+z(z,y)}{varDelta x} \\
 
@@ -315,12 +317,21 @@ z = f(x,y) = x^2 + 3xy + y^2 在(1,2)处的偏导数
 \frac{\partial z}{\partial x} = 2x + 3y + 0 \\
 \frac{\partial z}{\partial y} = 0 + 3x + 2y \\
 将(1,2)带入
-\frac{\partial z}{\partial x}(1,2) =  8
-\frac{\partial z}{\partial y}(1,2) =  7
-
-S = frac{u^2 + v^2}{uv}
-
-Z = (1 + xy)^y
+\frac{\partial z}{\partial x}(1,2) =  8 \\
+\frac{\partial z}{\partial y}(1,2) =  7 \\
+第一题
+S = \frac{u^2 + v^2}{uv} \\
+S = \frac{u}{v} + \frac{v}{u} \\
+\frac{\partial S}{\partial u} = \frac{1}{v} - \frac{v}{u^2} \\
+\frac{\partial S}{\partial v} = -\frac{u}{v^2} + \frac{1}{u} \\
+第二题
+Z = (1 + xy)^y \\
+\frac{\partial z}{\partial x} = y(1+xy)^{y-1}y = y^2(1+xy)^{y-1} \\
+利用
+a^b = e^{blna} \\
+(x^x)’ = (e^{xlnx})’ = e^{xlnx}(xlnx) \\
+\frac{\partial z}{\partial y} = (e^{yln(1+xy)})’ \\
+(e^{yln(1+xy)})’ = e^{yln(1+xy)}[ln(1+xy)+\frac{xy}{1+xy}]
 
 U = x^{\frac{y}{z}}
 
