@@ -337,7 +337,7 @@ a^b = e^{blna} \\
 U = x^{\frac{y}{z}} \\
 \frac{\partial U}{\partial x} = \frac{y}{z}x^{\frac{y}{z}-1} \\
 \frac{\partial U}{\partial y} = x^{\frac{y}{z}}ln(x)\frac{1}{z} \\
-\frac{\partial U}{\partial z} = x^{\frac{y}{z}}lnx\(-\frac{y}{z^2}) \\
+\frac{\partial U}{\partial z} = x^{\frac{y}{z}}lnx(-\frac{y}{z^2}) \\
 
 
 Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1) \\
@@ -346,6 +346,89 @@ Z = x
 \frac{\partial z}{\partial x} = 1
 
 \end{eqnarray}
+$$
+
+
+$$
+\begin{aligned}
+
+&\text{偏导数定义：}\\
+\frac{\partial z}{\partial x} 
+&= \lim_{\Delta x \to 0}
+\frac{z(x+\Delta x,y)-z(x,y)}{\Delta x} \\
+
+\frac{\partial z}{\partial y} 
+&= \lim_{\Delta y \to 0}
+\frac{z(x,y+\Delta y)-z(x,y)}{\Delta y} \\[10pt]
+
+
+&\text{例1：} z=f(x,y)=x^2+3xy+y^2 \\
+
+\frac{\partial z}{\partial x} 
+&= 2x+3y \\
+
+\frac{\partial z}{\partial y} 
+&= 3x+2y \\
+
+\text{代入 }(1,2)： \quad
+\frac{\partial z}{\partial x}(1,2) &= 8 \\
+\frac{\partial z}{\partial y}(1,2) &= 7 \\[10pt]
+
+
+&\text{第一题：} \\
+
+S &= \frac{u^2+v^2}{uv} 
+= \frac{u}{v} + \frac{v}{u} \\
+
+\frac{\partial S}{\partial u} 
+&= \frac{1}{v} - \frac{v}{u^2} \\
+
+\frac{\partial S}{\partial v} 
+&= -\frac{u}{v^2} + \frac{1}{u} \\[10pt]
+
+
+&\text{第二题：} \\
+
+Z &= (1+xy)^y \\
+
+\frac{\partial Z}{\partial x} 
+&= y(1+xy)^{y-1} \cdot y
+= y^2(1+xy)^{y-1} \\
+
+&\text{利用 } a^b = e^{b\ln a} \\
+
+Z &= e^{y\ln(1+xy)} \\
+
+\frac{\partial Z}{\partial y} 
+&= e^{y\ln(1+xy)}
+\left[
+\ln(1+xy) + \frac{xy}{1+xy}
+\right] \\[10pt]
+
+
+&\text{第三题：} \\
+
+U &= x^{\frac{y}{z}} \\
+
+\frac{\partial U}{\partial x} 
+&= \frac{y}{z}x^{\frac{y}{z}-1} \\
+
+\frac{\partial U}{\partial y} 
+&= x^{\frac{y}{z}} \ln(x)\cdot \frac{1}{z} \\
+
+\frac{\partial U}{\partial z} 
+&= x^{\frac{y}{z}} \ln(x)\left(-\frac{y}{z^2}\right) \\[10pt]
+
+
+&\text{第四题：} \\
+
+Z &= x + (y-1)\arcsin\left(\sqrt{\frac{x}{y}}\right) \\
+
+\text{令 } y=1：\quad Z &= x \\
+
+\frac{\partial z}{\partial x}(0,1) &= 1
+
+\end{aligned}
 $$
 
 
