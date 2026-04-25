@@ -50,7 +50,7 @@ $$
 
 $$
 \begin{eqnarray}
- \lim_{varDelta x \to 0} \\
+ \lim_{x \to 0} \\
  \sin x \to x  \\
  \tan x \to x  \\
  \arcsin x\to x \\
@@ -309,8 +309,13 @@ $$
 
 $$
 \begin{array}
-\frac{\partial z}{\partial x} = lim_{varDelta x \to 0}frac{z(x + \partial x,y)+z(x,y)}{varDelta x} \\
-\frac{\partial z}{\partial y} = lim_{varDelta y \to 0}frac{z(x ,y + \partial y)+z(z,y)}{varDelta x} \\
+
+\begin{equation}
+\frac{\partial z}{\partial x} = \lim_{\varDelta x \to 0}\frac{z(x + \partial x,y)+z(x,y)}{\varDelta x}
+\end{equation}
+\begin{equation}
+\frac{\partial z}{\partial y} = \lim_{\varDelta y \to 0}\frac{z(x ,y + \partial y)+z(z,y)}{\varDelta x}
+\end{equation}
 
 z = f(x,y) = x^2 + 3xy + y^2 在(1,2)处的偏导数
 
@@ -333,9 +338,19 @@ a^b = e^{blna} \\
 \frac{\partial z}{\partial y} = (e^{yln(1+xy)})’ \\
 (e^{yln(1+xy)})’ = e^{yln(1+xy)}[ln(1+xy)+\frac{xy}{1+xy}]
 
-U = x^{\frac{y}{z}}
+U = x^{\frac{y}{z}} \\
+\frac{\partial U}{\partial x} = \frac{y}{z}x^{\frac{y}{z}-1} \\
+\frac{\partial U}{\partial y} = x^{\frac{y}{z}}lnx\frac{1}{z} \\
+\frac{\partial U}{\partial z} = x^{\frac{y}{z}}lnx\(-\frac{y}{z^2}) \\
+
 
 Z = x + (y - 1)arcsin(\sqrt{\frac{x}{y}}) 求\frac{\partial z}{\partial x}(0,1)
+y=1带入
+\begin{equation}
+Z = x 
+\end{equation}
+
+\frac{\partial z}{\partial x} = 1
 
 \end{array}
 $$
