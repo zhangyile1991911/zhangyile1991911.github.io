@@ -46,6 +46,15 @@ $$
 \end{eqnarray}
 $$
 
+## 辅助角公式
+
+$$
+\begin{eqnarray}
+  a\cosx + b \sinx = \sqrt{a^2+b^2} \sin(x + \varphi) \\
+  a\cosx + b \sinx = \sqrt{a^2+b^2} \cos(x - \varphi)
+\end{eqnarray}
+$$
+
 ## 等价无穷小代换
 
 $$
@@ -93,12 +102,21 @@ $$
 ## 导数四则运算
 
 $$
-\begin{array}
- [f(x) \pm g(x)]’ = f’(x) \pm g’(x) \\
- [f(x) \times g(x)]’ = f’(x) \times g(x) + f(x) \times g’(x) \\
- [\frac{f(x)}{g(x)}]’ = \frac{f’(x) \times g(x) + f(x) \times g’(x)} {g^2(x)} \\
- [f(g(x))]’ = f’(g(x)) \times g’(x)
-\end{array}
+\begin{aligned}
+
+\left[ f(x) \pm g(x) \right]' 
+&= f'(x) \pm g'(x) \\
+
+\left[ f(x)\cdot g(x) \right]' 
+&= f'(x)\cdot g(x) + f(x)\cdot g'(x) \\
+
+\left[ \frac{f(x)}{g(x)} \right]' 
+&= \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)} \\
+
+\left[ f(g(x)) \right]' 
+&= f'(g(x))\cdot g'(x)
+
+\end{aligned}
 $$
 
 ## 洛必达法则
@@ -111,34 +129,83 @@ $$
 ## 泰勒公式
 
 $$
-\begin{array}
- \e^x = 1 + \frac{1}{1!}x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3+\ldots \\
- \sin x = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 + \ldots \\
- \cos x = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + \ldots \\
- \tan x = x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + \ldots \\
- \frac{1}{1-x} = 1 + x + x^2 + x^3 + x^4 + \ldots \\
- \frac{1}{1+x} = 1 - x + x^2 - x^3 + x^4 + \ldots \\
- \ln (1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5} + \ldots \\
- f(x) = f(x_0) + f’(x- x_0) + \frac{f’’(x_0)}{2!}x^2 + \ldots 
-\end{array}
+\begin{aligned}
+
+e^x 
+&= 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \\
+
+\sin x 
+&= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots \\
+
+\cos x 
+&= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots \\
+
+\tan x 
+&= x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots \\
+
+\frac{1}{1-x} 
+&= 1 + x + x^2 + x^3 + \cdots \quad (|x|<1) \\
+
+\frac{1}{1+x} 
+&= 1 - x + x^2 - x^3 + \cdots \quad (|x|<1) \\
+
+\ln(1+x) 
+&= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \quad (-1<x\le1) \\[10pt]
+
+
+\text{泰勒展开（一般式）：} \\
+
+f(x) 
+&= f(x_0) 
++ f'(x_0)(x-x_0) 
++ \frac{f''(x_0)}{2!}(x-x_0)^2 \\
+&\quad + \frac{f^{(3)}(x_0)}{3!}(x-x_0)^3 
++ \cdots
+
+\end{aligned}
 $$
 
 ## 不定积分
 
 $$
-\begin{array}
-  \displaystyle \int kdx = kx + c \\
-  \displaystyle \int \frac{1}{\sqrt{1-x^2}}dx = \arcsin (x) + c \\
-  \displaystyle \int x^adx = \frac{x^{a+1}}{a+1} + c \\
-  \displaystyle \int a^xdx = \frac{a^x}{\ln a} + c \\
-  \displaystyle \int \frac{1}{x} = \ln (|x|) + c \\
-  \displaystyle \int \cos xdx = \sin x + c \\
-  \displaystyle \int \sin xdx = -\cos x + c \\
-  \displaystyle \int \frac{1}{1+x^2} = \arctan x + c \\
-  \displaystyle \int \frac{1}{\cos^2 x} = \int \sec^2 x = \tan x + c \\
-  \displaystyle \int \frac{1}{\sin^2 x} = \int \csc^2 x = -\cot x + c \\
-  \displaystyle \int e^xdx = e^x + c
-\end{array}
+\begin{aligned}
+
+\int k \, dx 
+&= kx + C \\
+
+\int x^a \, dx 
+&= \frac{x^{a+1}}{a+1} + C \quad (a \ne -1) \\
+
+\int \frac{1}{x} \, dx 
+&= \ln|x| + C \\
+
+\int a^x \, dx 
+&= \frac{a^x}{\ln a} + C \quad (a>0,\ a\ne1) \\
+
+\int e^x \, dx 
+&= e^x + C \\[8pt]
+
+
+\int \sin x \, dx 
+&= -\cos x + C \\
+
+\int \cos x \, dx 
+&= \sin x + C \\
+
+\int \sec^2 x \, dx 
+&= \tan x + C \\
+
+\int \csc^2 x \, dx 
+&= -\cot x + C \\[8pt]
+
+
+\int \frac{1}{1+x^2} \, dx 
+&= \arctan x + C \\
+
+\int \frac{1}{\sqrt{1-x^2}} \, dx 
+&= \arcsin x + C
+
+\end{aligned}
 $$
 
 
