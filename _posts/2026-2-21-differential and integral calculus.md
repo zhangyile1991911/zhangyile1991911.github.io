@@ -49,10 +49,17 @@ $$
 ## 辅助角公式
 
 $$
-\begin{eqnarray}
-  a\cosx + b \sinx = \sqrt{a^2+b^2} \sin(x + \varphi) \\
-  a\cosx + b \sinx = \sqrt{a^2+b^2} \cos(x - \varphi)
-\end{eqnarray}
+\begin{aligned}
+
+a\cos x + b\sin x 
+&= \sqrt{a^2 + b^2}\,\sin(x + \varphi), 
+\quad \tan \varphi = \frac{a}{b} \\
+
+a\cos x + b\sin x 
+&= \sqrt{a^2 + b^2}\,\cos(x - \varphi), 
+\quad \tan \varphi = \frac{b}{a}
+
+\end{aligned}
 $$
 
 ## 等价无穷小代换
@@ -453,3 +460,166 @@ Z &= x \\
 
 \end{aligned}
 $$
+
+## 点到线公式
+
+$$
+\begin{aligned}
+
+\text{2D} \\
+d = \frac{Ax+By}{\sqrt{A^2+B^2}} \\
+
+\text{3D} \\
+\text{平面} \\
+Ax+By+Cz+D=0 \\
+d = \frac{Ax+By+Cz+D}{\sqrt{A^2+B^2+C^2}}
+
+\end{aligned}
+$$
+
+## 全微分,方向导数,梯度
+
+$$
+\begin{aligned}
+
+\textbf{一、全微分} \\[4pt]
+
+dz 
+&= \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy \\
+
+\frac{\partial z}{\partial x} &: \text{x方向变化率} \\
+\frac{\partial z}{\partial y} &: \text{y方向变化率} \\
+dx &: \text{x的变化} \\
+dy &: \text{y的变化} \\
+dz &: \text{z的变化} \\[8pt]
+
+
+\textbf{可全微分判定：} \\
+
+\lim_{(dx,dy)\to(0,0)}
+\frac{
+z(x+dx,y+dy)-z(x,y)
+- \left(
+\frac{\partial z}{\partial x}dx
++ \frac{\partial z}{\partial y}dy
+\right)
+}{
+\sqrt{dx^2+dy^2}
+}
+&= 0 \\[12pt]
+
+
+\textbf{例1：} \quad z = e^{xy} \\
+
+dz 
+&= y e^{xy} dx + x e^{xy} dy \\[10pt]
+
+
+\textbf{例2（近似计算）：} \\
+
+f(x,y) &= x^y,\quad f(2,3)=8 \\
+
+\frac{\partial z}{\partial x} 
+&= y x^{y-1} \\
+\frac{\partial z}{\partial y} 
+&= x^y \ln x \\
+
+df 
+&= y x^{y-1} dx + x^y \ln x \, dy \\
+
+df(0.002,0.001) 
+&= 12 \cdot 0.002 + 5.6 \cdot 0.001 \\[12pt]
+
+
+\textbf{二、方向导数} \\[4pt]
+
+\frac{\partial z}{\partial \vec{l}} 
+&= \frac{\partial z}{\partial x}\cos\theta 
++ \frac{\partial z}{\partial y}\sin\theta \\
+
+&= \frac{
+\frac{\partial z}{\partial x} \, \Delta x
++ \frac{\partial z}{\partial y} \, \Delta y
+}{
+\sqrt{\Delta x^2 + \Delta y^2}
+} \\
+
+\cos\alpha 
+&= \frac{\Delta x}{\sqrt{\Delta x^2 + \Delta y^2}} \\
+\cos\beta 
+&= \frac{\Delta y}{\sqrt{\Delta x^2 + \Delta y^2}} \\[10pt]
+
+
+\textbf{例1：} \\
+
+z &= x e^{2y},\quad P(1,0)\rightarrow Q(2,-1) \\
+
+\frac{\partial z}{\partial x} 
+&= e^{2y} \\
+\frac{\partial z}{\partial y} 
+&= 2x e^{2y} \\
+
+\frac{\partial z}{\partial x}(1,0) &= 1 \\
+\frac{\partial z}{\partial y}(1,0) &= 2 \\
+
+\vec{l} &= (1,-1) \\
+|\vec{l}| &= \sqrt{2} \\
+
+\cos\alpha &= \frac{1}{\sqrt{2}},\quad
+\cos\beta = -\frac{1}{\sqrt{2}} \\
+
+D_{\vec{l}} z 
+&= 1 \cdot \frac{1}{\sqrt{2}} 
++ 2 \cdot \left(-\frac{1}{\sqrt{2}}\right) \\
+&= -\frac{1}{\sqrt{2}} \\[12pt]
+
+
+\textbf{例2：} \\
+
+z &= x^2 - 2xy + y \\
+
+\frac{\partial z}{\partial x} 
+&= 2x - 2y \\
+\frac{\partial z}{\partial y} 
+&= -2x + 1 \\
+
+(2,1) \Rightarrow 
+\frac{\partial z}{\partial x} = 2,\quad
+\frac{\partial z}{\partial y} = -3 \\
+
+D_{\vec{l}} z 
+&= 2\cos\theta - 3\sin\theta \\
+
+&= (2,-3)\cdot(\cos\theta,\sin\theta) \\
+
+\text{最大：} 
+&\quad \theta = \arctan\!\left(-\frac{3}{2}\right) \\
+
+\text{最小：} 
+&\quad \theta = \arctan\!\left(-\frac{3}{2}\right)+\pi \\
+
+\text{为0：} 
+&\quad \theta = \arctan\!\left(-\frac{3}{2}\right)\pm\frac{\pi}{2} \\[12pt]
+
+
+\textbf{例3（梯度性质）：} \\
+
+f(x,y) &= \tfrac{1}{2}(x^2+y^2) \\
+
+\nabla f(2,1) &= (2,1) \\
+
+\text{最大方向：} &(2,1) \\
+\text{最小方向：} &(-2,-1) \\
+\text{为0方向：} &(1,-2),\ (-1,2) \\[10pt]
+
+
+\textbf{梯度：} \\
+
+\nabla z &= \left(\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}\right)
+
+\end{aligned}
+$$
+
+
+
+
