@@ -620,6 +620,66 @@ f(x,y) &= \tfrac{1}{2}(x^2+y^2) \\
 \end{aligned}
 $$
 
+## 多元函数复合求导
+
+![Desktop View](math/quanweifen.png){: width="642" height="425" .w-75 .normal}
+
+$$
+\begin{aligned}
+
+\textbf{一、全微分形式不变性} \\[6pt]
+
+z &= u^2 + v^2 \\
+u &= x + y \\
+v &= x - y \\[6pt]
+
+dz 
+&= \frac{\partial z}{\partial u}du 
++ \frac{\partial z}{\partial v}dv \\
+
+du &= dx + dy \\
+dv &= dx - dy \\
+
+dz 
+&= 2u(dx+dy) + 2v(dx-dy) \\
+&= (2u+2v)dx + (2u-2v)dy \\[10pt]
 
 
+\textbf{二、链式法则（多元复合）} \\[6pt]
+
+\frac{\partial z}{\partial x}
+&= \frac{\partial z}{\partial u}\frac{\partial u}{\partial x}
++ \frac{\partial z}{\partial v}\frac{\partial v}{\partial x} \\
+&= 2u \cdot 1 + 2v \cdot 1 \\[6pt]
+
+\frac{\partial z}{\partial y}
+&= \frac{\partial z}{\partial u}\frac{\partial u}{\partial y}
++ \frac{\partial z}{\partial v}\frac{\partial v}{\partial y} \\
+&= 2u \cdot 1 + 2v \cdot (-1) \\[12pt]
+
+
+\textbf{三、例题（参数复合）} \\[6pt]
+
+z &= e^{x-2y}, \quad x=\sin t,\quad y=t^3 \\[6pt]
+
+\frac{dz}{dt}
+&= \frac{\partial z}{\partial x}\frac{dx}{dt}
++ \frac{\partial z}{\partial y}\frac{dy}{dt} \\
+
+\frac{\partial z}{\partial x}
+&= e^{x-2y} \\
+\frac{\partial z}{\partial y}
+&= -2e^{x-2y} \\
+
+\frac{dz}{dt}
+&= e^{x-2y}\cos t 
++ (-2e^{x-2y}) \cdot 3t^2 \\
+
+&= e^{x-2y}
+\left(
+\cos t - 6t^2
+\right)
+
+\end{aligned}
+$$
 
