@@ -680,7 +680,7 @@ z &= e^{x-2y}, \quad x=\sin t,\quad y=t^3 \\[6pt]
 \cos t - 6t^2
 \right)
 
-
+\end{aligned}
 $$
 
 ## 多元函数极值问题
