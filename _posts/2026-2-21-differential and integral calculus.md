@@ -680,6 +680,113 @@ z &= e^{x-2y}, \quad x=\sin t,\quad y=t^3 \\[6pt]
 \cos t - 6t^2
 \right)
 
+
+$$
+
+## 多元函数极值问题
+
+$$
+\begin{aligned}
+
+\textbf{二元函数极值判定} \\[6pt]
+
+z &= f(x,y) \\
+
+\text{极值点的必要条件：}\quad
+f_x &= 0,\quad f_y = 0 \\[6pt]
+
+A &= f_{xx},\quad B=f_{xy},\quad C=f_{yy} \\
+
+D &= AC-B^2 \\[6pt]
+
+D>0,\ A>0 &\Rightarrow \text{极小值} \\
+D>0,\ A<0 &\Rightarrow \text{极大值} \\
+D<0 &\Rightarrow \text{不是极值点} \\
+D=0 &\Rightarrow \text{无法判断，需要其他方法} \\[12pt]
+
+
+\textbf{例题} \\[6pt]
+
+f(x,y) &= x^3-y^3+3x^2+3y^2-9x \\[6pt]
+
+f_x &= 3x^2+6x-9 \\
+f_y &= -3y^2+6y \\[6pt]
+
+\left\{
+\begin{aligned}
+3x^2+6x-9 &= 0 \\
+-3y^2+6y &= 0
+\end{aligned}
+\right.
+\quad\Rightarrow\quad
+\left\{
+\begin{aligned}
+x &= 1,\ -3 \\
+y &= 0,\ 2
+\end{aligned}
+\right. \\[8pt]
+
+\text{驻点为：}\quad
+&(1,0),\ (1,2),\ (-3,0),\ (-3,2) \\[10pt]
+
+
+f_{xx} &= 6x+6 \\
+f_{xy} &= 0 \\
+f_{yy} &= -6y+6 \\[10pt]
+
+
+\textbf{1. 点 }(1,0) \\
+
+A &= f_{xx}(1,0)=12 \\
+B &= f_{xy}(1,0)=0 \\
+C &= f_{yy}(1,0)=6 \\
+
+D &= AC-B^2 = 12\cdot 6-0^2=72>0 \\
+A&>0
+\quad\Rightarrow\quad
+(1,0)\text{ 是极小值点} \\[10pt]
+
+
+\textbf{2. 点 }(1,2) \\
+
+A &= f_{xx}(1,2)=12 \\
+B &= f_{xy}(1,2)=0 \\
+C &= f_{yy}(1,2)=-6 \\
+
+D &= AC-B^2 = 12\cdot(-6)-0^2=-72<0 \\
+&\Rightarrow\quad
+(1,2)\text{ 不是极值点} \\[10pt]
+
+
+\textbf{3. 点 }(-3,0) \\
+
+A &= f_{xx}(-3,0)=-12 \\
+B &= f_{xy}(-3,0)=0 \\
+C &= f_{yy}(-3,0)=6 \\
+
+D &= AC-B^2 = (-12)\cdot 6-0^2=-72<0 \\
+&\Rightarrow\quad
+(-3,0)\text{ 不是极值点} \\[10pt]
+
+
+\textbf{4. 点 }(-3,2) \\
+
+A &= f_{xx}(-3,2)=-12 \\
+B &= f_{xy}(-3,2)=0 \\
+C &= f_{yy}(-3,2)=-6 \\
+
+D &= AC-B^2 = (-12)\cdot(-6)-0^2=72>0 \\
+A&<0
+\quad\Rightarrow\quad
+(-3,2)\text{ 是极大值点} \\[12pt]
+
+
+\textbf{结论：} \\
+
+(1,0) &:\ \text{极小值点} \\
+(-3,2) &:\ \text{极大值点} \\
+(1,2),\ (-3,0) &:\ \text{不是极值点}
+
 \end{aligned}
 $$
 
