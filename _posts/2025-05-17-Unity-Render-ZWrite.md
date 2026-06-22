@@ -16,10 +16,10 @@ Unity6 6000.0.32f1
 URP 17.0.3
 
 # 前提
-PostProcessのDepth Of Fieldを用いて手前の風景をぼかししようと思っていました。
+PostProcessのDepth Of Fieldを用いて手前の風景をぼかしを適用しようと思っていました。
 
 ## 原理
-ランダリング最後の段階でシーン中のオブジェクトの深度により、ぼかしを行います
+ランダリング最後の段階でシーン中のオブジェクトの深度により、ぼかしを適用する
 
 ## 問題
 ![Desktop View](company/render_z_1.png){: width="875" height="482" .w-75 .normal}
@@ -95,5 +95,5 @@ Pass
 - Unityで統一されます
     Near=0 Far = 1
     float linearDepth = Linear01Depth(depth, _ZBufferParams); // 0（近い）→1（遠い）になります
-- 不透明な物のレンダリング順番は近いから遠いまで
-透明な物が遠いから近いまで
+- 不透明なオブジェクトの描画順は近いから遠いまで
+透明なオブジェクトが遠いから近いまで
