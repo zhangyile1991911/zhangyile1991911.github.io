@@ -14,88 +14,95 @@ image:
 
 ## 概要
 
-### ゲーム開発におけるUIの管理問題
-1. UI表示順番管理
-2. UI要素をクラスの変数に紐つけるのが手間なので毎回UI要素が変更されたら、変数との紐付けを作り直す必要があります
-3. UIのライフサイクルの管理
-4. バグが起きたときにバグ調査
-5. アプリライフサイクルと同じように廃棄されずにUI要素がある　例えばホームページなど要望
+### ゲーム開発におけるUI管理の課題
+
+> ゲーム開発では、UIが増えるにつれて次のような問題が発生しやすくなります。
+
+1. UIの表示順を管理しにくい
+2. UI要素とクラス内の変数を手動で紐付ける必要があり、UI構成が変わるたびに修正が発生する
+3. UIのライフサイクル管理が複雑になる
+4. バグ発生時に原因を特定しにくい
+5. ホーム画面のように、アプリのライフサイクル中は破棄したくないUIが存在する
 
 ### 対策
-1. 事前に表示順番レイヤーを定義しておきます。Bottom,Center,Top,Tipなど
-2. ノードにより、紐つけコードを自動で生成される
-3. LRU(Least Recently Used)というアルゴリズムでUI要素を管理する。簡単に言えば、使い回数で順位をつけ、容量が足りない時に順位が低いものを最優先に破棄する
-4. 実行中に内部変数をチェックしたり、検査したりしやすいために変数を可視化するツールを作成する
-5. タグをつける。UIが廃棄される時に、タグを判断して特殊の取り扱いを行う
+
+> 上記の課題に対して、次の方針で対応します。
+
+1. `Bottom`、`Center`、`Top`、`Tip`など、表示順を制御するレイヤーを事前に定義する
+2. オブジェクト名に応じて、UI要素の紐付けコードを自動生成する
+3. LRU（Least Recently Used）アルゴリズムを利用して、UIオブジェクトのライフサイクルを管理する
+4. 実行時に内部変数や状態を確認しやすいように、可視化ツールを用意する
+5. UIオブジェクトを破棄する際、タグや属性に応じて特別な処理を行う
 
 ## 仕組みの設計
 
-- この基盤の礎はUIWidget,UIWindow,UIManager三つクラスにより成り立っています。
-- UIWidgetは最小単位のUI要素であります。
-- UIWindowとは複数のUIWidgetを搭載できます。
-- 同じ名前UIWindowとUIWidgetは一つのみです。
-- UIManagerはLRUというアルゴリズムでUIWindowの管理を行います。
-PS：LRUとはThe Least Recently Used Cache。
+> このUI管理基盤は、主に`UIWidget`、`UIWindow`、`UIManager`の3つのクラスで構成されます。
+
+- `UIWidget`は、最小単位のUI要素です。
+- `UIWindow`は、複数の`UIWidget`を持つ画面単位のクラスです。
+- 同じ名前の`UIWindow`と`UIWidget`は、それぞれ1つだけ存在します。
+- `UIManager`は、LRUアルゴリズムを利用して`UIWindow`を管理します。
+
+> LRUは、Least Recently Used Cacheの略です。簡単に言えば、最近使われていないものから優先的に破棄する仕組みです。
 
 
 ## メリット
-1. よく使われる画面を頻繁に生成することを避け、同じインスタンスを使い回す
-2. インメモリ使用量を一定範囲内に抑えることができる
-3. 長時間で使われない画面を自動で廃棄する
-4. 自動で変数がUI要素に紐付く
-5. 管理ツールで目安に内部変数や状態が見える
+
+1. よく使う画面の生成・破棄を減らし、同じインスタンスを再利用できる
+2. メモリ使用量を一定範囲内に抑えやすい
+3. 長時間使われていない画面を自動的に破棄できる
+4. UI要素と変数を自動で紐付けられる
+5. 管理ツールによって、内部変数や状態を確認しやすくなる
 
 ## 例で説明する
-- ユーザー動作　　　
-    - ゲームが起動した時、ログイン画面が開いた
-- ロジック側　　　　
-    - スタックが空き枠があり、LoginWindowを入れた
+
+> ここでは、最大4つのWindowを保持できるスタックを例にします。
+
+- ユーザーがゲームを起動すると、ログイン画面が表示されます。
+- ロジック側では、スタックに空きがあるため`LoginWindow`を追加します。
+
 ![Desktop View](ui_framework/s1.jpg){: width="284" height="384" .w-75 .normal}
 
-- ユーザー動作　
-    - そしてキャラクター一覧画面を開いてキャラー育成素材を確認したくなる
-- ロジック側
-    - スタックが空き枠があり、CharaWindowを入れた
+- ユーザーがキャラクター一覧画面を開き、育成素材を確認します。
+- ロジック側では、スタックに空きがあるため`CharaWindow`を追加します。
 ![Desktop View](ui_framework/s2.jpg){: width="284" height="384" .w-75 .normal}
 
-- ユーザー動作
-    - バッグ画面を開いて持っているアイテムを確認してから、素材を購入しようと思ってショップ画面に遷移します。
-- ロジック側
-    - スタックが空き枠があり、BagWindowを入れた
+- ユーザーがバッグ画面を開き、所持アイテム数を確認します。その後、素材を購入するためにショップ画面へ遷移しようとします。
+- ロジック側では、スタックに空きがあるため`BagWindow`を追加します。
 ![Desktop View](ui_framework/s3.jpg){: width="284" height="384" .w-75 .normal}
 
-- ユーザー動作
-    - ショップ画面を開いて購入しようアイテムを忘れてバッグ画面に戻ります
-- ロジック側
-    - スタックが空き枠があり、 ShopWindowを入れた
+- ユーザーがショップ画面を開きます。しかし、購入したいアイテムを忘れたため、バッグ画面に戻ります。
+- ロジック側では、スタックに空きがあるため`ShopWindow`を追加します。
 ![Desktop View](ui_framework/s4.jpg){: width="284" height="384" .w-75 .normal}
 
-- ユーザー動作
-    - バッグ画面を開いた途端メールボックスにログイン報酬を思い出した
-- ロジック側
-    - BagWindowの使った回数に１とタイムスタンプを足す。回数だけ増加することに不親切なことが起きますかも。例えばバッグ画面を繰り返して開いた。バッグ画面の使った回数が大きな数字になってスタックに常駐になります。だからタイムスタンプ値を加えます。ずっと前に１００回以上開いた画面であっても廃棄されます
+- ユーザーがバッグ画面を開いた直後に、メールボックスのログイン報酬を思い出します。
+
+- ロジック側では、`BagWindow`の使用情報を更新します。ただし、使用回数だけを増やすと問題が起きる可能性があります。例えば、バッグ画面を何度も開くと使用回数が非常に大きくなり、スタックに常駐しやすくなります。そのため、使用回数だけでなくタイムスタンプも加味します。これにより、たとえ画面が100回以上開かれていても、最近使われていなければ破棄対象にできます。
+
 ![Desktop View](ui_framework/s5.jpg){: width="284" height="384" .w-75 .normal}
 
-- ユーザー動作
-    - メール画面を開いて
-- ロジック側
-    - スタックが満載なので一番古いLoginWindowオブジェクトを削除した
+- ユーザーがメール画面を開きます。
+- この時点でスタックは満杯のため、最も古い`LoginWindow`を削除し、`MailWindow`を追加します。
 ![Desktop View](ui_framework/s6.jpg){: width="284" height="384" .w-75 .normal}
 
-> 特別で常駐する画面[MainWindow]が他の処理で廃棄されないようにする
+> 常駐画面は破棄されず、メモリ上に残り続けます。例えば、ホーム画面などが該当します。
 
-## 自動的にバンディング,UIクラスのコードを生成する
-1. 画面を組み立てバンディングしたいオブジェクトを一定名前をつける
+## UIクラスとUI要素の紐付けを自動生成する
+1. 画面を組み立てる際、コードから取得したいオブジェクトに接頭辞を付けます。
 ![Desktop View](ui_framework/s7.png){: width="713" height="405" .w-75 .normal}
-2. 拡張したコマンドを利用する
+2. エディタ上の拡張コマンドを利用します。
 ![Desktop View](ui_framework/s8.png){: width="710" height="242" .w-75 .normal}
-3. 生成するノードを枠に引き入れる
+3. 対象オブジェクトを指定された枠内にドラッグします。
 ![Desktop View](ui_framework/s9.png){: width="714" height="405" .w-75 .normal}
 
-## 生成Windowボタンを押す
-1. プレハブとクラスが自動的に生成された
+## 自動生成ボタンを押す
+1. 自動生成ボタンを押すと、プレハブに対応するコードが生成されます。
+
+### prefab
+
 ![Desktop View](ui_framework/s11.png){: width="579" height="174" .w-75 .normal}
 
+### code
 
 ```csharp
 using System.Collections;
@@ -130,21 +137,23 @@ public partial class HomeWindow : UIWindow
 ```
 
 ## デバッグツール
-1. 順位--LRUにより、現時点Windowの順位です。
-2. 名前
-3. component数
-4. 所属階層--現時点windowはどの階層に所属しています
-5. 活性化--現時点windowが表示されていますか
-6. 使い回数
-7. インメモリに永住するか
+
+> デバッグツールでは、現在管理されているWindowの状態を確認できます。
+
+1. 順位：LRUに基づく現在のWindow順位
+2. 名前：Window名
+3. Component数：Windowが持つComponentの数
+4. 所属階層：現在のWindowが所属しているレイヤー
+5. 表示状態：現在のWindowが表示中かどうか
+6. 使用回数：Windowが開かれた回数
+7. 常駐：メモリ上に常駐するかどうか
 
 ![Desktop View](ui_framework/tool.png){: width="579" height="174" .w-75 .normal}
 
 
 ## 基底クラスの拡張
 
-1. 理由
-    下記のような二つクラスが重複コードや機能を持つ場合だったら、共通のコードを抜き出して基底クラスを作る方が便利だと思います。
+> 複数のクラスが同じコードや機能を持つ場合は、共通処理を基底クラスに切り出すと管理しやすくなります。
 
 ```csharp
 class AWidget : UIWidget
@@ -196,33 +205,7 @@ class UIPDWidget : UIWidget
 {
 	protected PlayableDirector rootPD;
 	protected Animator rootAnimator;
-	protected override void OnCreate()
-    {
-        rootPD = uiTran.GetComponent<PlayableDirector>();
-        rootAnimator = uiTran.GetComponent<Animator>();
-    }
-    protected override void OnShow(UIOpenParam openParam)
-    {
-    }
-    
-    protected override void OnHide(UIOpenParam openParam)
-    {
-    }
-}
-```
-
-3. 生成する前に基底クラスを選択する
-
-![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
-
-4. 生成する前に必須要件がチェックする
-
-```csharp
-class UIPDWidget : UIWidget
-{
-	protected PlayableDirector rootPD;
-	protected Animator rootAnimator;
-	//子クラスが生成される時に必須要件をチェックする
+    // 子クラスを生成する前に、必要なComponentが揃っているか確認する
 	#if UNITY_EDITOR
     [UIRequirement]
     public static bool RequirementChecker(GameObject go)
@@ -241,24 +224,40 @@ class UIPDWidget : UIWidget
         }
         return true;
     }
-    #endif
+	protected override void OnCreate()
+    {
+        rootPD = uiTran.GetComponent<PlayableDirector>();
+        rootAnimator = uiTran.GetComponent<Animator>();
+    }
+    protected override void OnShow(UIOpenParam openParam)
+    {
+    }
+    
+    protected override void OnHide(UIOpenParam openParam)
+    {
+    }
 }
 ```
 
+3. 生成前に基底クラスを選択する
+
+![Desktop View](ui_framework/parentclasschoice.png){: width="579" height="174" .w-75 .normal}
+
+
 ### 要件が満たされない場合
 
-- エラーが出る
+- エラーを表示
 
 ![Desktop View](ui_framework/s13.png){: width="579" height="174" .w-75 .normal}
 
-- クラスとプレハブが生成されない
+- クラスとプレハブを生成しません
 
 ![Desktop View](ui_framework/s14.png){: width="579" height="174" .w-75 .normal}
 
 
 ## Windowのライフサイクル管理の改善
 
-- 新しいAttributeを追加することで　直接にライフサイクルを明確に指定できるようになります。
+- 新しいAttributeを追加することで、Windowのライフサイクルを明確に表現できます。
 
 ```
 //このWindowが自動で破棄される
@@ -276,10 +275,11 @@ public partial class TestWindow : UIWindow
 }
 ```
 
-## イーナムの廃棄
+## Enumを廃止する
 
-1. クラスファイルとイーナムの１対１関係を維持するのが面倒です。
-2. Aクラスが削除されたら、このクラスに応じるイーナムの削除を忘れてバグが発生することを防ぐため
+ClassとEnumの1対1の関係を維持するのは手間がかかります。また、クラスを削除した際に対応するEnumの削除を忘れると、バグが発生する可能性があります。
+
+そのため、可能であればEnumではなく、Attributeや型情報を利用して管理した方が安全です。
 
 ## リポジトリ
 
